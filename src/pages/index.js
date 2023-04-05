@@ -2,6 +2,7 @@ import HomePage from "@/components/HomePage";
 import React, { useState, useEffect } from "react";
 import NavBar from "@/components/NavBar";
 import Head from "next/head";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [items, setItems] = useState([]);
@@ -44,6 +45,7 @@ export default function Home() {
         <div className="mainContainer">
           <HomePage coffees={items} />
         </div>
+        <Footer />
       </main>
     </div>
   );
