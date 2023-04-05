@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import styles from "../styles/Carousel.module.css";
 
 const Carousel = (props) => {
   const { coffees } = props;
@@ -14,8 +15,6 @@ const Carousel = (props) => {
   useEffect(() => {
     setLength(coffees.length);
   }, [coffees]);
-
-  console.log(coffees.length);
 
   const next = () => {
     if (currentIndex < length - 3) {
@@ -56,49 +55,51 @@ const Carousel = (props) => {
   };
 
   return (
-    <div className="carousel-container">
-      <div className="carousel-wrapper">
-        {currentIndex > 0 && (
-          <button onClick={prev} className="left-arrow">
-            &lt;
-          </button>
-        )}
-        <div
-          className="carousel-content-wrapper"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-        >
+    <div className={styles.container}>
+      <div className="carousel-container">
+        <div className="carousel-wrapper">
+          {currentIndex > 0 && (
+            <button onClick={prev} className="left-arrow">
+              &lt;
+            </button>
+          )}
           <div
-            className="carousel-content"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            className="carousel-content-wrapper"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
           >
-            {coffees.map((coffee) => {
-              return (
-                <div key={coffee.id}>
-                  <Link
-                    href={`/product/${coffee.id}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <img
-                      style={{
-                        objectFit: "cover",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                      src={coffee.image}
-                      alt="coffee-bag"
-                    />
-                  </Link>
-                </div>
-              );
-            })}
+            <div
+              className="carousel-content"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {coffees.map((coffee) => {
+                return (
+                  <div key={coffee.id}>
+                    <Link
+                      href={`/product/${coffee.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <img
+                        style={{
+                          objectFit: "cover",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                        src={coffee.image}
+                        alt="coffee-bag"
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
+          {currentIndex < length - 1 && (
+            <button onClick={next} className="right-arrow">
+              &gt;
+            </button>
+          )}
         </div>
-        {currentIndex < length - 1 && (
-          <button onClick={next} className="right-arrow">
-            &gt;
-          </button>
-        )}
       </div>
     </div>
   );

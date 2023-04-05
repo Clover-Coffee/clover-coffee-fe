@@ -39,11 +39,12 @@ const ShopAll = ({ coffees }) => {
     }
   };
 
-  console.log(coffees);
-
   const stumpsCoffee = coffees.filter((item) => item.brand === "stumptown");
-  const colombesCoffee = coffees.filter((item) => item.brand === "lacolombe");
+  const peetsCoffee = coffees.filter((item) => item.brand === "peets");
   const partnersCoffee = coffees.filter((item) => item.brand === "partners");
+  const whitenoiseCoffee = coffees.filter(
+    (item) => item.brand === "whitenoise"
+  );
 
   return (
     <Layout>
@@ -53,8 +54,12 @@ const ShopAll = ({ coffees }) => {
           <Carousel coffees={stumpsCoffee} />
         </section>
         <section className="products-section">
-          <h2 id="featured-title">La Colombe Coffee</h2>
-          <Carousel coffees={colombesCoffee} />
+          <h2 id="featured-title">White Noise Coffee</h2>
+          <Carousel coffees={whitenoiseCoffee} />
+        </section>
+        <section className="products-section">
+          <h2 id="featured-title">Peets Coffee</h2>
+          <Carousel coffees={peetsCoffee} />
         </section>
         <section className="products-section">
           <h2 id="featured-title">Partners Coffee</h2>
