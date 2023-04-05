@@ -30,9 +30,9 @@ export default function Home() {
     setCart(newCart);
   };
 
-  useEffect(() => {
-    fetchItems();
-  }, []);
+  // useEffect(() => {
+  //   fetchItems();
+  // }, []);
 
   return (
     <div>
