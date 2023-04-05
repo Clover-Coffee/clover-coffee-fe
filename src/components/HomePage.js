@@ -16,10 +16,10 @@ export default function HomePage({ coffees }) {
     return selected;
   }
 
+
   useEffect(() => {
     fetchTopSellers();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [topSellers]);
+  }, [coffees]);
 
   async function specificCoffee() {
     const response = await fetch(`http://localhost:8080/items/${id}`);
