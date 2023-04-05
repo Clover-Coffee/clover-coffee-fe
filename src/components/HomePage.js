@@ -1,13 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
-export function HomePage({ items }) {
+export default function HomePage({ coffees }) {
   const [topSellers, setTopSellers] = useState([]);
   const [coffee, setCoffee] = useState([]);
 
   async function fetchTopSellers() {
     let n = 3;
-    const shuffled = items.sort(() => {
+    const shuffled = coffees.sort(() => {
       return 0.5 - Math.random();
     });
     const selected = shuffled.slice(0, n);
@@ -17,7 +18,8 @@ export function HomePage({ items }) {
 
   useEffect(() => {
     fetchTopSellers();
-  }, [items]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [topSellers]);
 
   async function specificCoffee() {
     const response = await fetch(`http://localhost:8080/items/${id}`);
@@ -34,27 +36,27 @@ export function HomePage({ items }) {
         <section className="cta-btn">
           <h2 className="cta">CALL TO ACTION</h2>
           <section className="button-section">
-            <Link to="/shopall" style={{ textDecoration: "none" }}>
+            <Link href="/shopall" style={{ textDecoration: "none" }}>
               <button className="shopall-button">Shop All</button>
             </Link>
           </section>
         </section>
       </section>
-      <h2 id="featured-title">TOP SELLERS</h2>
-      <section className="featured-section">
-        {topSellers.map((item) => {
+      <h2 id="topseller-title">TOP SELLERS</h2>
+      <section className="topseller-section">
+        {topSellers.map((coffee) => {
           return (
-            <li className="coffee" key={item.id}>
+            <li className="coffee" key={coffee.id}>
               <Link
-                to={`/coffee/${item.id}`}
+                href={`/coffee/${coffee.id}`}
                 style={{ textDecoration: "none" }}
               >
                 <img
                   className="randomizedImgs"
-                  src={item.image}
-                  alt={item.name}
+                  src={coffee.image}
+                  alt={coffee.name}
                 />
-                <h3 className="coffeeName">{item.name.substring(0, 20)}</h3>
+                <h3 className="coffeeName">{coffee.name.substring(0, 20)}</h3>
               </Link>
             </li>
           );
