@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "@/components/NavBar";
 import Head from "next/head";
 import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 
 export async function getStaticProps() {
   const res = await fetch("http://localhost:8080/items");
@@ -54,13 +55,13 @@ export default function Home({ coffees }) {
           href="https://www.clipartmax.com/png/middle/10-105715_shamrock-green-four-leaf-clover.png"
         />
       </Head>
-      <NavBar />
-      <main className="appContainer">
-        <div className="mainContainer">
-          <HomePage coffees={coffees} />
-        </div>
-      </main>
-      <Footer />
+      <Layout>
+        <main className="appContainer">
+          <div className="mainContainer">
+            <HomePage coffees={coffees} />
+          </div>
+        </main>
+      </Layout>
     </div>
   );
 }

@@ -17,7 +17,6 @@ export default function HomePage({ coffees }) {
     return selected;
   }
 
-
   useEffect(() => {
     fetchTopSellers();
   }, [coffees]);

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Carousel = (props) => {
   const { coffees } = props;
-  // console.log(coffees);
+  console.log(coffees);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [length, setLength] = useState(coffees.length);
@@ -14,6 +14,8 @@ const Carousel = (props) => {
   useEffect(() => {
     setLength(coffees.length);
   }, [coffees]);
+
+  console.log(coffees.length);
 
   const next = () => {
     if (currentIndex < length - 3) {

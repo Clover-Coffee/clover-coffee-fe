@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import AddModal from "../components/AddModal";
+import Layout from "@/components/Layout";
+import Carousel from "@/components/Carousel";
 
-
-const ShopAll = ({ items }) => {
+const ShopAll = ({ coffees }) => {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -13,8 +14,8 @@ const ShopAll = ({ items }) => {
 
   const handleClick = () => {
     setShowModal(!showModal);
-    console.log(showModal)
-  }
+    console.log(showModal);
+  };
   const onClose = () => {
     setShowModal(false);
     window.location.reload();
@@ -22,7 +23,7 @@ const ShopAll = ({ items }) => {
 
   const addItems = async (event) => {
     window.location.reload();
-    console.log('clicked')
+    console.log("clicked");
     const response = await fetch(`http://localhost:8080/items`, {
       method: "POST",
       headers: {
@@ -38,63 +39,63 @@ const ShopAll = ({ items }) => {
     }
   };
 
-  console.log(items);
+  console.log(coffees);
 
-
-  const stumpsCoffee = items.filter((item) => item.brand === "stumptown");
-  const colombesCoffee = items.filter((item) => item.brand === "lacolombe");
-  const partnersCoffee = items.filter((item) => item.brand === "partners");
-  
+  const stumpsCoffee = coffees.filter((item) => item.brand === "stumptown");
+  const colombesCoffee = coffees.filter((item) => item.brand === "lacolombe");
+  const partnersCoffee = coffees.filter((item) => item.brand === "partners");
 
   return (
-    <div className="productsContainer">
-      <section className="products-section">
-        <h2 id="featured-title">Stumptown Coffee</h2>
-        Carousel goes here
+    <Layout>
+      <div className="productsContainer">
+        <section className="products-section">
+          <h2 id="featured-title">Stumptown Coffee</h2>
+          <Carousel coffees={stumpsCoffee} />
+        </section>
+        <section className="products-section">
+          <h2 id="featured-title">La Colombe Coffee</h2>
+          <Carousel coffees={colombesCoffee} />
+        </section>
+        <section className="products-section">
+          <h2 id="featured-title">Partners Coffee</h2>
+          <Carousel coffees={partnersCoffee} />
+        </section>
 
-        {/* <Carousel items={stumpsCoffee} /> */}
-      </section>
-      <section className="products-section">
-        <h2 id="featured-title">La Colombe Coffee</h2>
-        Carousel goes here
-
-        {/* <Carousel items={colombesCoffee} /> */}
-      </section>
-      <section className="products-section">
-        <h2 id="featured-title">Partners Coffee</h2>
-        Carousel goes here
-        {/* <Carousel items={partnersCoffee} /> */}
-      </section>
-      
-      <Button onClick={handleClick}  variant="dark" size="md" className="mt-4 w-100">
-      ADD ITEM
-      </Button>
-      {showModal && (
-                <AddModal
-                  setName={setName}
-                  setDescription={setDescription}
-                  setPrice={setPrice}
-                  handleClick={handleClick}
-                  name={name}
-                  description={description}
-                  price={price}
-                  brand={brand}
-                  setBrand={setBrand}
-                  image={image}
-                  setImage={setImage}
-                  onClose={onClose}
-                  addItems={addItems}
-                />
-              )}
-    </div>
+        <Button
+          onClick={handleClick}
+          variant="dark"
+          size="md"
+          className="mt-4 w-100"
+        >
+          ADD ITEM
+        </Button>
+        {showModal && (
+          <AddModal
+            setName={setName}
+            setDescription={setDescription}
+            setPrice={setPrice}
+            handleClick={handleClick}
+            name={name}
+            description={description}
+            price={price}
+            brand={brand}
+            setBrand={setBrand}
+            image={image}
+            setImage={setImage}
+            onClose={onClose}
+            addItems={addItems}
+          />
+        )}
+      </div>
+    </Layout>
   );
 };
 
 ShopAll.getInitialProps = async () => {
-  const res = await fetch('http://localhost:8080/items');
-  const items = await res.json();
+  const res = await fetch("http://localhost:8080/items");
+  const coffees = await res.json();
 
-  return { items };
+  return { coffees };
 };
 
 export default ShopAll;
