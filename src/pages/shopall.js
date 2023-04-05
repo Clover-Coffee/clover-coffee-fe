@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Button } from "react-bootstrap";
 import AddModal from "../components/AddModal";
 
+
 const ShopAll = ({ items }) => {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
@@ -22,7 +23,7 @@ const ShopAll = ({ items }) => {
   const addItems = async (event) => {
     window.location.reload();
     console.log('clicked')
-    const response = await fetch(`${apiURL}/items`, {
+    const response = await fetch(`http://localhost:8080/items`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,30 +38,32 @@ const ShopAll = ({ items }) => {
     }
   };
 
+  console.log(items);
 
-//   const mensItems = items.filter((item) => item.brand === "mens");
-//   const womensItems = items.filter((item) => item.brand === "womens");
-//   const shoesItems = items.filter((item) => item.brand === "shoes");
+
+  const stumpsCoffee = items.filter((item) => item.brand === "stumptown");
+  const colombesCoffee = items.filter((item) => item.brand === "lacolombe");
+  const partnersCoffee = items.filter((item) => item.brand === "partners");
   
 
   return (
     <div className="productsContainer">
       <section className="products-section">
-        <h2 id="featured-title">Menswear</h2>
+        <h2 id="featured-title">Stumptown Coffee</h2>
         Carousel goes here
 
-        {/* <Carousel items={mensItems} /> */}
+        {/* <Carousel items={stumpsCoffee} /> */}
       </section>
       <section className="products-section">
-        <h2 id="featured-title">Womenswear</h2>
+        <h2 id="featured-title">La Colombe Coffee</h2>
         Carousel goes here
 
-        {/* <Carousel items={womensItems} /> */}
+        {/* <Carousel items={colombesCoffee} /> */}
       </section>
       <section className="products-section">
-        <h2 id="featured-title">Shoes</h2>
+        <h2 id="featured-title">Partners Coffee</h2>
         Carousel goes here
-        {/* <Carousel items={shoesItems} /> */}
+        {/* <Carousel items={partnersCoffee} /> */}
       </section>
       
       <Button onClick={handleClick}  variant="dark" size="md" className="mt-4 w-100">
@@ -85,6 +88,13 @@ const ShopAll = ({ items }) => {
               )}
     </div>
   );
+};
+
+ShopAll.getInitialProps = async () => {
+  const res = await fetch('http://localhost:8080/items');
+  const items = await res.json();
+
+  return { items };
 };
 
 export default ShopAll;

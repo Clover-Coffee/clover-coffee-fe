@@ -4,13 +4,24 @@ import NavBar from "@/components/NavBar";
 import Head from "next/head";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:8080/items");
+  const coffees = await res.json();
+
+  return {
+    props: {
+      coffees,
+    },
+  };
+}
+
+export default function Home({ coffees }) {
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
 
   async function fetchItems() {
     try {
-      const response = await fetch(`${apiURL}/items`);
+      const response = await fetch(`http://localhost:8080/items`);
       const itemsData = await response.json();
       setItems(itemsData);
     } catch (err) {
@@ -30,23 +41,26 @@ export default function Home() {
     setCart(newCart);
   };
 
-  // useEffect(() => {
-  //   fetchItems();
-  // }, []);
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
   return (
     <div>
       <Head>
         <title>Clover Coffee</title>
-        <link rel="shortcut icon" href="https://www.clipartmax.com/png/middle/10-105715_shamrock-green-four-leaf-clover.png" />
+        <link
+          rel="shortcut icon"
+          href="https://www.clipartmax.com/png/middle/10-105715_shamrock-green-four-leaf-clover.png"
+        />
       </Head>
+      <NavBar />
       <main className="appContainer">
-        <NavBar />
         <div className="mainContainer">
-          <HomePage coffees={items} />
+          <HomePage coffees={coffees} />
         </div>
-        <Footer />
       </main>
+      <Footer />
     </div>
   );
 }
