@@ -1,6 +1,7 @@
 import HomePage from "@/components/HomePage";
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import NavBar from "@/components/NavBar";
+import Head from "next/head";
 
 export default function Home() {
   const [items, setItems] = useState([]);
@@ -33,11 +34,17 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="appContainer">
-      <NavBar/>
-      <div className="mainContainer">
-        <HomePage coffees={items}/>
-      </div>
-    </main>
+    <div>
+      <Head>
+        <title>Clover Coffee</title>
+        <link rel="shortcut icon" href="https://www.clipartmax.com/png/middle/10-105715_shamrock-green-four-leaf-clover.png" />
+      </Head>
+      <main className="appContainer">
+        <NavBar />
+        <div className="mainContainer">
+          <HomePage coffees={items} />
+        </div>
+      </main>
+    </div>
   );
 }
