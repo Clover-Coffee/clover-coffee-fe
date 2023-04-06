@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import UpdateItemModal from "./UpdateModal";
+// import UpdateItemModal from "./UpdateModal";
 import Link from "next/link";
 
 
@@ -84,7 +85,7 @@ export function CoffeePage({ coffees, addToCart }) {
                 </button>
               </div>
 
-              {showModal && (
+              {/* {showModal && (
                 <UpdateItemModal
                   setName={setName}
                   setDescription={setDescription}
@@ -100,7 +101,7 @@ export function CoffeePage({ coffees, addToCart }) {
                   coffees={coffees[i]}
                   onClose={onClose}
                 />
-              )}
+              )} */}
             </div>
             <div className="productDescription">
               <h1 className="productTitle">{coffees[i].name}</h1>
