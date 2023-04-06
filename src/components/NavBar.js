@@ -11,18 +11,18 @@ const NavBar = () => {
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "white",
-        borderBottom: ".5px solid rgb(172, 172, 172)",
-      }}
+    <div className="nav-color"
+      // style={{
+      //   backgroundColor: "white",
+      //   borderBottom: ".5px solid rgb(172, 172, 172)",
+      // }}
     >
       <nav className="nav-bar navbar-static-top">
         <Link href="/" style={{ textDecoration: "none" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <h1>logo</h1>
         </Link>
-        <form>
+        <form >
           <IoIosSearch className="searchIcon" size="20px" />
           <input
             className="searchBar"
