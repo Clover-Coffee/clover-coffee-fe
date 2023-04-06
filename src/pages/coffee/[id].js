@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-// import UpdateItemModal from "./UpdateModal";
+import UpdateItemModal from "@/components/UpdateModal";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
@@ -26,11 +26,10 @@ const Coffee = ({ coffees, addToCart }) => {
 
   const onClose = () => {
     setShowModal(false);
-    window.location.reload();
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch(`http://localhost:8080/items/${itemId}`, {
+    const response = await fetch(`http://localhost:8080/items/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +46,7 @@ const Coffee = ({ coffees, addToCart }) => {
 
   const handleDelete = async (event) => {
     window.location.reload();
-    const response = await fetch(`http://localhost:8080/items/${itemId}`, {
+    const response = await fetch(`http://localhost:8080/items/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -63,30 +62,31 @@ const Coffee = ({ coffees, addToCart }) => {
 
   return (
     <Layout>
-    <div className="productPage">
-      <section className="singularProduct">
-        <div className="containerLeft">
-          <img
-            src={coffee.image}
-            className="specificProductImg"
-            alt={coffee.name}
-          />
-          <div className="product-buttons">
-            <button className="productButton" onClick={handleClick}>
-              Update Item
-            </button>
-            <button onClick={handleDelete} className="productButton">
-              Delete Item
-            </button>
-            <button
-              className="productButton"
-              onClick={() => router.push("/shopall")}
-            >
-              Go Back
-            </button>
-          </div>
+      {coffee ? (
+        <div className="productPage">
+          <section className="singularProduct">
+            <div className="containerLeft">
+              <img
+                src={coffee.image}
+                className="specificProductImg"
+                alt={coffee.name}
+              />
+              <div className="product-buttons">
+                <button className="productButton" onClick={handleClick}>
+                  Update Item
+                </button>
+                <button onClick={handleDelete} className="productButton">
+                  Delete Item
+                </button>
+                <button
+                  className="productButton"
+                  onClick={() => router.push("/shopall")}
+                >
+                  Go Back
+                </button>
+              </div>
 
-          {/* {showModal && (
+              {showModal && (
                 <UpdateItemModal
                   setName={setName}
                   setDescription={setDescription}
@@ -99,38 +99,41 @@ const Coffee = ({ coffees, addToCart }) => {
                   setImage={setImage}
                   brand={brand}
                   setBrand={setBrand}
-                  coffees={coffees[i]}
+                  coffees={coffees}
                   onClose={onClose}
                 />
-              )} */}
+              )}
+            </div>
+            <div className="productDescription">
+              <h1 className="productTitle">{coffee.name}</h1>
+              <p className="productPrice">${coffee.price}</p>
+              <div className="productSpecs">
+                <p>
+                  {" "}
+                  <span>Product Description:</span> {coffee.description}
+                </p>
+              </div>
+              <div className="cartButtons">
+                <Button
+                  onClick={() => addToCart(coffee.id)}
+                  variant="dark"
+                  size="md"
+                  className="mt-4 w-100 addToCartBtn"
+                >
+                  Add to Cart
+                </Button>
+                <Link href="/cart">
+                  <Button variant="dark" size="md" className="mt-4 w-100">
+                    View Cart
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </section>
         </div>
-        <div className="productDescription">
-          <h1 className="productTitle">{coffee.name}</h1>
-          <p className="productPrice">${coffee.price}</p>
-          <div className="productSpecs">
-            <p>
-              {" "}
-              <span>Product Description:</span> {coffee.description}
-            </p>
-          </div>
-          <div className="cartButtons">
-            <Button
-              onClick={() => addToCart(coffee.id)}
-              variant="dark"
-              size="md"
-              className="mt-4 w-100 addToCartBtn"
-            >
-              Add to Cart
-            </Button>
-            <Link href="/cart">
-              <Button variant="dark" size="md" className="mt-4 w-100">
-                View Cart
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
+      ) : (
+        <h1>Coffee Not Found</h1>
+      )}
     </Layout>
   );
 };
