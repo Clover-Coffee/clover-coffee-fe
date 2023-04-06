@@ -1,17 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState} from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Button } from "react-bootstrap";
 // import UpdateItemModal from "./UpdateModal";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 
 
-
-export function CoffeePage({ coffees, addToCart }) {
+const Coffee = ({ coffees, addToCart }) => {
   const { id } = useParams();
+  console.log(coffees);
 
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const itemId = parseInt(id);
   const [showModal, setShowModal] = useState(false);
@@ -80,7 +81,7 @@ export function CoffeePage({ coffees, addToCart }) {
                   Update Item
                 </button>
                 <button onClick={handleDelete} className="productButton">Delete Item</button>
-                <button className="productButton" onClick={() => navigate("/shopall")}>
+                <button className="productButton" onClick={() => router.push("/shopall")}>
                   Go Back
                 </button>
               </div>
@@ -134,3 +135,13 @@ export function CoffeePage({ coffees, addToCart }) {
     }
   }
 }
+
+
+Coffee.getInitialProps = async () => {
+  const res = await fetch("http://localhost:8080/items");
+  const coffees = await res.json();
+
+  return { coffees };
+};
+
+export default Coffee;
