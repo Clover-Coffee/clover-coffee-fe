@@ -1,8 +1,6 @@
 import HomePage from "@/components/HomePage";
 import React, { useState, useEffect } from "react";
-import NavBar from "@/components/NavBar";
 import Head from "next/head";
-import Footer from "@/components/Footer";
 import Layout from "@/components/Layout";
 
 export async function getStaticProps() {
