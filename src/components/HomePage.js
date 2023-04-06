@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import styles from "../styles/homepage.module.css"
 
 export default function HomePage({ coffees }) {
   const [topSellers, setTopSellers] = useState([]);
@@ -28,35 +29,35 @@ export default function HomePage({ coffees }) {
   }
 
   return (
-    <div className="homepage">
-      <section className="greeting">
-        <h1 id="home-title">Clover Coffee</h1>
+    <div>
+      <section className={styles.greeting}>
+        <h1 className={styles.homeTitle}>Clover Coffee</h1>
       </section>
-      <section className="picture-container">
-        <section className="cta-btn">
-          <h2 className="cta">CALL TO ACTION</h2>
-          <section className="button-section">
+      <section className={styles.pictureContainer}>
+        <section className={styles.ctaBtn}>
+          <h2 className={styles.cta}>CALL TO ACTION</h2>
+          <section className={styles.buttonSection}>
             <Link href="/shopall" style={{ textDecoration: "none" }}>
-              <button className="shopall-button">Shop All</button>
+              <button className={styles.shopallButton}>Shop All</button>
             </Link>
           </section>
         </section>
       </section>
-      <h2 id="topseller-title">TOP SELLERS</h2>
-      <section className="topseller-section">
+      <h2 className={styles.topsellerTitle}>TOP SELLERS</h2>
+      <section className={styles.topsellerSection}>
         {topSellers.map((coffee) => {
           return (
-            <li className="coffee" key={coffee.id}>
+            <li className={styles.coffee} key={coffee.id}>
               <Link
                 href={`/coffee/${coffee.id}`}
                 style={{ textDecoration: "none" }}
               >
                 <img
-                  className="randomizedImgs"
+                  className={styles.randomizedImgs}
                   src={coffee.image}
                   alt={coffee.name}
                 />
-                <h3 className="coffeeName">{coffee.name.substring(0, 20)}</h3>
+                <h3 className={styles.coffeeName}>{coffee.name.substring(0, 20)}</h3>
               </Link>
             </li>
           );
