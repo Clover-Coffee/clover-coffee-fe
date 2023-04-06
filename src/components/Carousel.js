@@ -76,10 +76,9 @@ const Carousel = (props) => {
                 return (
                   <div key={coffee.id}>
                     <Link
-                      href={`/coffee/${coffee.id}`}
+                      href={`/coffee/${coffee.id}`} passHref
                       style={{ textDecoration: "none" }}
                     >
-                      <a>
                       <img
                         style={{
                           objectFit: "cover",
@@ -89,7 +88,6 @@ const Carousel = (props) => {
                         src={coffee.image}
                         alt="coffee-bag"
                       />
-                      </a>
                     </Link>
                   </div>
                 );

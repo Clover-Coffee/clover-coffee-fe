@@ -1,20 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState} from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 // import UpdateItemModal from "./UpdateModal";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-
+import Layout from "@/components/Layout";
 
 const Coffee = ({ coffees, addToCart }) => {
-  const { id } = useParams();
-  console.log(coffees);
-
   const router = useRouter();
 
-  const itemId = parseInt(id);
+  const { id } = router.query;
+
+  const coffee = coffees.find((coffee) => coffee.id === parseInt(id));
+
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -46,7 +44,7 @@ const Coffee = ({ coffees, addToCart }) => {
       console.error("Failed to update coffee:", response);
     }
   };
-  
+
   const handleDelete = async (event) => {
     window.location.reload();
     const response = await fetch(`http://localhost:8080/items/${itemId}`, {
@@ -63,30 +61,32 @@ const Coffee = ({ coffees, addToCart }) => {
     }
   };
 
+  return (
+    <Layout>
+    <div className="productPage">
+      <section className="singularProduct">
+        <div className="containerLeft">
+          <img
+            src={coffee.image}
+            className="specificProductImg"
+            alt={coffee.name}
+          />
+          <div className="product-buttons">
+            <button className="productButton" onClick={handleClick}>
+              Update Item
+            </button>
+            <button onClick={handleDelete} className="productButton">
+              Delete Item
+            </button>
+            <button
+              className="productButton"
+              onClick={() => router.push("/shopall")}
+            >
+              Go Back
+            </button>
+          </div>
 
-
-  for (let i = 0; i < coffees.length; i++) {
-    if (coffees[i].id == id) {
-      return (
-        <div className="productPage">
-          <section className="singularProduct">
-            <div className="containerLeft">
-              <img
-                src={coffees[i].image}
-                className="specificProductImg"
-                alt={coffees[i].name}
-              />
-              <div className="product-buttons">
-                <button className="productButton" onClick={handleClick}>
-                  Update Item
-                </button>
-                <button onClick={handleDelete} className="productButton">Delete Item</button>
-                <button className="productButton" onClick={() => router.push("/shopall")}>
-                  Go Back
-                </button>
-              </div>
-
-              {/* {showModal && (
+          {/* {showModal && (
                 <UpdateItemModal
                   setName={setName}
                   setDescription={setDescription}
@@ -103,39 +103,37 @@ const Coffee = ({ coffees, addToCart }) => {
                   onClose={onClose}
                 />
               )} */}
-            </div>
-            <div className="productDescription">
-              <h1 className="productTitle">{coffees[i].name}</h1>
-              <p className="productPrice">${coffees[i].price}</p>
-              <div className="productSpecs">
-                <p>
-                  {" "}
-                  <span>Product Description:</span> {coffees[i].description}
-                </p>
-              </div>
-              <div className="cartButtons">
-                <Button
-                  onClick={() => addToCart(coffees[i].id)}
-                  variant="dark"
-                  size="md"
-                  className="mt-4 w-100 addToCartBtn"
-                >
-                  Add to Cart
-                </Button>
-                <Link href="/cart">
-                  <Button variant="dark" size="md" className="mt-4 w-100">
-                    View Cart
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </section>
         </div>
-      );
-    }
-  }
-}
-
+        <div className="productDescription">
+          <h1 className="productTitle">{coffee.name}</h1>
+          <p className="productPrice">${coffee.price}</p>
+          <div className="productSpecs">
+            <p>
+              {" "}
+              <span>Product Description:</span> {coffee.description}
+            </p>
+          </div>
+          <div className="cartButtons">
+            <Button
+              onClick={() => addToCart(coffee.id)}
+              variant="dark"
+              size="md"
+              className="mt-4 w-100 addToCartBtn"
+            >
+              Add to Cart
+            </Button>
+            <Link href="/cart">
+              <Button variant="dark" size="md" className="mt-4 w-100">
+                View Cart
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+    </Layout>
+  );
+};
 
 Coffee.getInitialProps = async () => {
   const res = await fetch("http://localhost:8080/items");
