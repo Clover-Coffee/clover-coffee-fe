@@ -43,12 +43,12 @@ const NavBar = () => {
           </li>
           <li className="navbar-btns">
             <Link href="/contact" style={{ textDecoration: "none" }}>
-            <button>Contact</button> 
+            <button>CONTACT</button> 
             </Link>
           </li>
           <li className="navbar-btns">
             <Link href="/cart" style={{ textDecoration: "none" }}>
-            <button>Cart</button> 
+            <button>CART</button> 
             </Link>
           </li>
         </ul>
