@@ -1,7 +1,5 @@
 import HomePage from "@/components/HomePage";
 import React, { useState, useEffect } from "react";
-import Head from "next/head";
-import Layout from "@/components/Layout";
 
 export async function getStaticProps() {
   const res = await fetch("http://localhost:8080/items");
@@ -46,13 +44,6 @@ export default function Home({ coffees }) {
 
   return (
     <div>
-      <Head >
-        <title>Clover Coffee</title>
-        <link
-          rel="shortcut icon"
-          href="/clover-logo.png"
-        />
-      </Head>
         <main className="appContainer">
           <div className="mainContainer">
             <HomePage coffees={coffees} />
