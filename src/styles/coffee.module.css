@@ -1,0 +1,57 @@
+.coffeePage {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 2%;
+}
+
+.singularCoffee {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 4%;
+}
+
+.containerLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.specificCoffeeImg {
+    background-color: white;
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
+    margin-bottom: 5%;
+
+}
+
+.coffeeButton {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 1.4em;
+    margin-left: 1rem;
+}
+
+.productDescription {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+
+.addToCartBtn {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.viewCartBtn {
+    width: 100%;
+}
+
+
+.button:hover {
+    background-color: #2f805a;
+}
