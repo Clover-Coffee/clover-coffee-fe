@@ -5,6 +5,7 @@ import UpdateItemModal from "@/components/UpdateModal";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
+import styles from "../../styles/coffee.module.css";
 
 const Coffee = ({ coffees, addToCart }) => {
   const router = useRouter();
@@ -63,23 +64,23 @@ const Coffee = ({ coffees, addToCart }) => {
   return (
     <Layout>
       {coffee ? (
-        <div className="productPage">
-          <section className="singularProduct">
-            <div className="containerLeft">
+        <div className={styles.coffeePage}>
+          <section className={styles.singularCoffee}>
+            <div className={styles.containerLeft}>
               <img
                 src={coffee.image}
-                className="specificProductImg"
+                className={styles.specificCoffeeImg}
                 alt={coffee.name}
               />
-              <div className="product-buttons">
-                <button className="productButton" onClick={handleClick}>
+              <div className={styles.coffeeButtons}>
+                <button className={`${styles.coffeeButton} ${styles.button}`} onClick={handleClick}>
                   Update Item
                 </button>
-                <button onClick={handleDelete} className="productButton">
+                <button onClick={handleDelete} className={`${styles.coffeeButton} ${styles.button}`}>
                   Delete Item
                 </button>
                 <button
-                  className="productButton"
+                  className={`${styles.coffeeButton} ${styles.button}`}
                   onClick={() => router.push("/shopall")}
                 >
                   Go Back
@@ -104,7 +105,7 @@ const Coffee = ({ coffees, addToCart }) => {
                 />
               )}
             </div>
-            <div className="productDescription">
+            <div className={styles.productDescription}>
               <h1 className="productTitle">{coffee.name}</h1>
               <p className="productPrice">${coffee.price}</p>
               <div className="productSpecs">
@@ -113,17 +114,17 @@ const Coffee = ({ coffees, addToCart }) => {
                   <span>Product Description:</span> {coffee.description}
                 </p>
               </div>
-              <div className="cartButtons">
+              <div className={styles.cartButtons}>
                 <Button
                   onClick={() => addToCart(coffee.id)}
                   variant="dark"
                   size="md"
-                  className="mt-4 w-100 addToCartBtn"
+                  className={`${styles.button} ${styles.addToCartBtn}`}
                 >
                   Add to Cart
                 </Button>
-                <Link href="/cart">
-                  <Button variant="dark" size="md" className="mt-4 w-100">
+                <Link href="/cart" className={`${styles.viewCartBtn}`}>
+                  <Button variant="dark" size="md" className={`${styles.button} ${styles.viewCartBtn}`}>
                     View Cart
                   </Button>
                 </Link>
