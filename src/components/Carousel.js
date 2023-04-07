@@ -73,7 +73,7 @@ const Carousel = (props) => {
           >
             {coffees.map((coffee) => {
               return (
-                <div key={coffee.id}>
+                <div key={coffee.id} className={styles.singleCoffee}>
                   <Link href={`/coffee/${coffee.id}`} passHref>
                     <img
                       style={{

@@ -3,4 +3,9 @@
     display: flex;
     justify-content: center;
     color: #218802;
+    margin-bottom: 3rem;
+}
+
+.productsContainer {
+    margin-top: 8%;
 }

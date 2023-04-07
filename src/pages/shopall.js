@@ -49,7 +49,7 @@ const ShopAll = ({ coffees }) => {
 
   return (
     <Layout>
-      <div className="productsContainer">
+      <div className={styles.productsContainer}>
         <section className="products-section">
           <h2 className={styles.featured}>Stumptown Coffee</h2>
           <Carousel coffees={stumpsCoffee} />

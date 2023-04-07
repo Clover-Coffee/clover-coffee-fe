@@ -57,6 +57,14 @@
   right: 24px;
 }
 
+.singleCoffee {
+  transition: transform 0.3s ease-in-out;
+}
+
+.singleCoffee:hover {
+  transform: scale(1.1);
+}
+
 @media (hover: none) and (pointer: coarse) {
   .left-arrow,
   .right-arrow {
