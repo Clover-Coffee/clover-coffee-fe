@@ -46,20 +46,18 @@ export default function Home({ coffees }) {
 
   return (
     <div>
-      <Head>
+      <Head >
         <title>Clover Coffee</title>
         <link
           rel="shortcut icon"
-          href="https://www.clipartmax.com/png/middle/10-105715_shamrock-green-four-leaf-clover.png"
+          href="/clover-logo.png"
         />
       </Head>
-      <Layout>
         <main className="appContainer">
           <div className="mainContainer">
             <HomePage coffees={coffees} />
           </div>
         </main>
-      </Layout>
     </div>
   );
 }

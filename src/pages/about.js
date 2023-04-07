@@ -7,7 +7,7 @@ const About = () => {
     <Layout>
       <div className={styles.wrapper}>
         <div className={styles['mission-statement']}>
-          <h1>add coffee image here</h1>
+        <h1 className={styles.statement}>Experience coffee like never before.</h1>
         </div>
         <div className={styles['core-values']}>
           <p className={styles['core-p']}>values</p>

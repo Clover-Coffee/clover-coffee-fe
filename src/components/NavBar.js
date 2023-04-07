@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
+import Image from 'next/image';
+
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
@@ -11,18 +13,15 @@ const NavBar = () => {
   };
 
   return (
-    <div className="nav-color"
+    <div
+      className="nav-color"
       // style={{
       //   backgroundColor: "white",
       //   borderBottom: ".5px solid rgb(172, 172, 172)",
       // }}
     >
       <nav className="nav-bar navbar-static-top">
-        <Link href="/" style={{ textDecoration: "none" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <h1>logo</h1>
-        </Link>
-        <form >
+        <form>
           <IoIosSearch className="searchIcon" size="20px" />
           <input
             className="searchBar"
@@ -30,25 +29,29 @@ const NavBar = () => {
             placeholder="Search Products"
           />
         </form>
+        <Link href="/" style={{ textDecoration: "none" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <Image src="/clover-logo.png" alt="Clover Logo" className="logo" width={200} height={200} />
+        </Link>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="navbar-btns">
             <Link href="/" style={{ textDecoration: "none" }}>
-              <button>HOME</button> 
+              HOME
             </Link>
           </li>
           <li className="navbar-btns">
             <Link href="/about" style={{ textDecoration: "none" }}>
-            <button>ABOUT</button> 
+              ABOUT
             </Link>
           </li>
           <li className="navbar-btns">
             <Link href="/contact" style={{ textDecoration: "none" }}>
-            <button>CONTACT</button> 
+              CONTACT
             </Link>
           </li>
           <li className="navbar-btns">
             <Link href="/cart" style={{ textDecoration: "none" }}>
-            <button>CART</button> 
+              CART
             </Link>
           </li>
         </ul>
