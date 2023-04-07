@@ -118,7 +118,7 @@ const Coffee = ({ coffees, addToCart }) => {
                 <div className={styles.productSpecs}>
                   <p>
                     {" "}
-                    <span>Product Description:</span> {coffee.description}
+                    <span></span> {coffee.description}
                   </p>
                 </div>
                 <div className={styles.cartButtons}>
