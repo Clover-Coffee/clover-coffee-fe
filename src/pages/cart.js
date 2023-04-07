@@ -86,7 +86,7 @@ const Cart = ({ cart, setCart }) => {
               </tbody> */}
               </Table>
             </div>
-            <div className="col-3 cartSum boxShadaw bg-light p-4">
+            <div className="col-3 cartSum boxShadow bg-light p-4">
               <h5 className="text-left mb-4 pb-2">Your Cart</h5>
               <div className="d-flex justify-content-between mb-3">
                 <h6 className="fw-normal">SubTotal Price :</h6>
