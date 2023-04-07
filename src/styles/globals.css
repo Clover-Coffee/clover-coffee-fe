@@ -149,6 +149,17 @@ li {
   }
 }
 
+@media screen and (max-width: 640px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (min-width: 770px) {
+  .logo {
+    margin-left: 7.5rem;
+  }
+}
+
 /* Footer */
 
 .footer {
@@ -205,14 +216,4 @@ p {
 
 .menu {
   margin-top: 1rem;
-}
-@media screen and (max-width: 640px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-  }
-}
-@media screen and (min-width: 770px) {
-  .logo {
-    margin-left: 6rem;
-  }
 }
