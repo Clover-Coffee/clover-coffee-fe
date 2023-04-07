@@ -1,102 +1,150 @@
 .topsellerTitle {
-    font-size: 2em;
-    font-weight: 300;
-    margin-bottom: 0.5em;
-    text-align: center;
-    color: #124736;
+  font-size: 2em;
+  font-weight: 300;
+  margin-bottom: 0.5em;
+  text-align: center;
+  color: #218802;
 }
 
 .topsellerSection {
-    /* border: 2px solid red; */
-    max-width: 1140px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 40px;
-    padding-bottom: 5rem;
+  /* border: 2px solid red; */
+  max-width: 1140px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  padding-bottom: 5rem;
 }
 
-
 .coffee {
-    height: 100%;
-    width: 100%;
-    transition: transform 0.2s ease-in-out;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.2s ease-in-out;
 }
 
 .coffee:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .shopallButton {
-    font-size: 1.5em;
-    background: transparent;
-    margin-top: 0;
-    color: white;
-    border-radius: 8%;
-    padding: 3px;
-    transition: transform 0.2s ease-in-out; 
+  font-size: 1.5em;
+  background: transparent;
+  margin-top: 0;
+  color: white;
+  border-radius: 8%;
+  padding: 3px;
+  transition: transform 0.2s ease-in-out;
 }
 
 .shopallButton:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-
 .randomizedImgs {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    background-color: white;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  background-color: white;
 }
 
 .coffeeName {
-    margin-top: 2%;
-    text-align: center;
-    font-size: 1em;
-    font-weight: 300;
-    margin-bottom: 0.5em;
-    background-color: white;
-    color: #218802;
+  margin-top: 2%;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 300;
+  margin-bottom: 0.5em;
+  background-color: white;
+  color: #218802;
 }
 
-
 .pictureContainer {
-    width: 100%;
-    background-image: url("https://images.pexels.com/photos/1379630/pexels-photo-1379630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-    background-size:cover;
-    height: 100vh;
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  background-image: url("https://images.pexels.com/photos/1379630/pexels-photo-1379630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-size: cover;
+  height: 100vh;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cta {
-    display: flex;
-    justify-content: center;
-    background: transparent;
-    color: white;
-    margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  color: white;
+  margin-bottom: 5%;
 }
 
 .ctaBtn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+}
+
+.brewGuides {
+  position: relative; /* set position to relative to make the ::before pseudo-element work */
+  margin-top: 2%;
+  padding: 5% 0;
+  text-align: center;
+  color: #218802;
+}
+
+.brewGuides::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://images.unsplash.com/photo-1568052557675-0c6095a407ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2371&q=80");
+  opacity: 0.5; /* set the opacity of the background image */
+  z-index: -1; /* set the z-index to -1 to make sure the text stays on top */
+  background-size: cover;
+}
+
+.brewLinks {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 3%;
+}
+
+.brewLink {
+  display: flex;
+  align-items: center;
+  color: #218802;
+  transition: transform 0.2s ease-in-out;
+}
+
+.brewLink:hover {
+  transform: scale(1.1);
+}
+
+.brewLinks a {
+  position: relative;
+  flex-basis: 18%;
+  text-decoration: none;
+}
+
+.brewLinks img {
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 5%;
 }
 
 /* create a hover effect for the product name with pointer */
 .coffeeName:hover,
 .randomizedImgs:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 @media screen and (max-width: 820px) {
-    .topsellerSection {
-        max-width: 100%;
-        margin: auto;
-        grid-template-columns: 1fr;
-    }
+  .topsellerSection {
+    max-width: 100%;
+    margin: auto;
+    grid-template-columns: 1fr;
+  }
 }
