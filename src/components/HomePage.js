@@ -2,7 +2,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import styles from "../styles/homepage.module.css"
+import styles from "../styles/homepage.module.css";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 export default function HomePage({ coffees }) {
   const [topSellers, setTopSellers] = useState([]);
@@ -30,12 +32,13 @@ export default function HomePage({ coffees }) {
 
   return (
     <div>
-      <section className={styles.greeting}>
+      {/* <section className={styles.greeting}>
         <h1 className={styles.homeTitle}>Clover Coffee</h1>
-      </section>
+      </section> */}
+      <NavBar />
       <section className={styles.pictureContainer}>
         <section className={styles.ctaBtn}>
-          <h2 className={styles.cta}>CALL TO ACTION</h2>
+          <h2 className={styles.cta}>Taste the difference, one cup at a time.</h2>
           <section className={styles.buttonSection}>
             <Link href="/shopall" style={{ textDecoration: "none" }}>
               <button className={styles.shopallButton}>Shop All</button>
@@ -57,12 +60,15 @@ export default function HomePage({ coffees }) {
                   src={coffee.image}
                   alt={coffee.name}
                 />
-                <h3 className={styles.coffeeName}>{coffee.name.substring(0, 20)}</h3>
+                <h3 className={styles.coffeeName}>
+                  {coffee.name.substring(0, 20)}
+                </h3>
               </Link>
             </li>
           );
         })}
       </section>
+      <Footer />
     </div>
   );
 }

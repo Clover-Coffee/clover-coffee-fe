@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 const Form = () => {
   return (
     <Layout>
-      <div className={styles.contactForm}>
+      <div className={`${styles.contactForm} ${styles.greenText}`}>
         <form className={styles.mainForm}>
           <label>YOUR NAME</label>
           <input

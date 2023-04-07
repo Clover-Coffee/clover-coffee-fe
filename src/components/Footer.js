@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="right">
-          <h4 className="about">Follow Us On Social Media!</h4>
+          <h4 className="about">Connect With Us</h4>
           <div className="social">
             <a href="https://www.linkedin.com/" target="_blank">
               <FaLinkedin size={25} style={{ marginRight: "1rem" }} />
