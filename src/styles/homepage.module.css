@@ -20,6 +20,11 @@
 .coffee {
     height: 100%;
     width: 100%;
+    transition: transform 0.2s ease-in-out;
+}
+
+.coffee:hover {
+    transform: scale(1.1);
 }
 
 .shopallButton {
@@ -29,7 +34,13 @@
     color: white;
     border-radius: 8%;
     padding: 3px;
+    transition: transform 0.2s ease-in-out; 
 }
+
+.shopallButton:hover {
+    transform: scale(1.1);
+}
+
 
 .randomizedImgs {
     height: 100%;
@@ -65,6 +76,7 @@
     justify-content: center;
     background: transparent;
     color: white;
+    margin-bottom: 5%;
 }
 
 .ctaBtn {
