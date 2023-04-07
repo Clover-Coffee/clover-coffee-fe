@@ -1,90 +1,190 @@
 .coffeePage {
-    height: 80%;
-    display: flex;
-    align-items: center;
-    margin-top: 2%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  margin-top: 2%;
 }
 
 .singularCoffee {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 4%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 4%;
 }
 
 .containerLeft {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .specificCoffeeImg {
-    background-color: white;
-    height: 70%;
-    width: 70%;
-    object-fit: contain;
-    margin-bottom: 5%;
-
+  background-color: white;
+  height: 70%;
+  width: 70%;
+  object-fit: contain;
+  margin-bottom: 5%;
 }
 
 .coffeeButton {
-    margin-top: 2em;
-    margin-bottom: 2em;
-    margin-left: 1rem;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 1rem;
+  color: #218802;
+  transition: 0.2s ease-in, color 0.2s ease-in;
 }
 
-.productDescription {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    background-color: #f8f8f8;
-}
-
-.productBox {
-    margin: 0 5%;
-}
-
-
-.addViewBtn {
-    width: 20%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-}
-
-.addViewBtn:hover {
-    color: #218802;
-}
-
-
-.deleted {
-    margin-top: 10%;
-    text-align: center;
-    color: #218802;
-}
-
-.deletedBtn {
-    margin-bottom: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 48%;
-    margin-top: 2%;
-}
-
-.deletedBtn:hover {
+.coffeeButton:hover {
     background-color: #218802;
     color: white;
 }
 
-.productPrice, .productTitle, .productSpecs {
-    color: #218802;
-    margin-bottom: 5%;
+.productDescription {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: #f8f8f8;
+}
+
+.productBox {
+  margin: 0 5%;
+}
+
+.addViewBtn {
+  width: 20%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.addViewBtn:hover {
+  color: #218802;
+}
+
+.deleted {
+  margin-top: 10%;
+  text-align: center;
+  color: #218802;
+}
+
+.deletedBtn {
+  margin-bottom: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 48%;
+  margin-top: 2%;
+}
+
+.deletedBtn:hover {
+  background-color: #218802;
+  color: white;
+}
+
+.productPrice,
+.productTitle,
+.productSpecs {
+  color: #218802;
+  margin-bottom: 5%;
 }
 
 .productSpecs {
-    margin-bottom: 8%;
+  margin-bottom: 8%;
+}
+
+/*for the modal */
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.updateForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.updateLabel {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.inputContainer input[type="text"],
+.inputContainer textarea,
+.inputContainer input[type="number"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  resize: none;
+}
+
+.submitBtn button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.submitBtn button[type="submit"]:hover {
+  background-color: #0062cc;
+}
+
+.closeBtn button {
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 10px;
+}
+
+.closeBtn button:hover {
+  background-color: #e2e6ea;
+}
+.description-label {
+  display: flex;
+}
+
+.inputContainer textarea {
+  padding: 1px;
+  border: solid 1px #5c8593;
+  font-size: 10pt;
+  color: #42484d;
+  background-color: #ffffff;
+}
+.inputContainer label input,
+.inputContainer textarea {
+  float: right;
+  clear: both;
 }

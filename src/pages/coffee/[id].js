@@ -60,6 +60,7 @@ const Coffee = ({ coffees, addToCart }) => {
       console.error("Failed to delete coffee:", response);
     }
   };
+  console.log(showModal);
 
   return (
     <Layout>
