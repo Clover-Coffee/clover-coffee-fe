@@ -1,8 +1,8 @@
 .coffeePage {
-    height: 100%;
+    height: 80%;
     display: flex;
     align-items: center;
-    padding: 2%;
+    margin-top: 2%;
 }
 
 .singularCoffee {
@@ -21,8 +21,8 @@
 
 .specificCoffeeImg {
     background-color: white;
-    height: 50%;
-    width: 50%;
+    height: 70%;
+    width: 70%;
     object-fit: contain;
     margin-bottom: 5%;
 
@@ -31,7 +31,6 @@
 .coffeeButton {
     margin-top: 2em;
     margin-bottom: 2em;
-    font-size: 1.4em;
     margin-left: 1rem;
 }
 
@@ -39,19 +38,49 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+    background-color: #f8f8f8;
+}
+
+.productBox {
+    margin: 0 2%;
 }
 
 
-.addToCartBtn {
-    width: 100%;
-    margin-bottom: 1em;
+.addViewBtn {
+    width: 20%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    text-decoration: none;
 }
 
-.viewCartBtn {
-    width: 100%;
+.addViewBtn:hover {
+    color: #218802;
 }
 
 
-.button:hover {
-    background-color: #2f805a;
+.deleted {
+    margin-top: 10%;
+    text-align: center;
+    color: #218802;
+}
+
+.deletedBtn {
+    margin-bottom: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 48%;
+    margin-top: 2%;
+}
+
+.deletedBtn:hover {
+    background-color: #218802;
+    color: white;
+}
+
+.productPrice, .productTitle, .productSpecs {
+    color: #218802;
 }

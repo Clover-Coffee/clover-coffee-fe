@@ -66,15 +66,18 @@ const ShopAll = ({ coffees }) => {
           <h2 className={styles.featured}>White Noise Coffee</h2>
           <Carousel coffees={whitenoiseCoffee} />
         </section>
+        <div className={styles.customButton}>
+          {" "}
+          <Button
+            onClick={handleClick}
+            variant="dark"
+            size="md"
+            className={styles[`my-custom-class`]}
+          >
+            ADD NEW COFFEE
+          </Button>
+        </div>
 
-        <Button
-          onClick={handleClick}
-          variant="dark"
-          size="md"
-          className="mt-4 w-100"
-        >
-          ADD NEW COFFEE
-        </Button>
         {showModal && (
           <AddModal
             setName={setName}
