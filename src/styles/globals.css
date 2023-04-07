@@ -13,6 +13,7 @@
   align-items: center;
   height: 90px;
   padding: 0 20px;
+  z-index: 9999;
 }
 
 a,
@@ -105,7 +106,6 @@ li {
 .nav-color.scrolled .nav-bar {
   background-color: transparent;
 }
-
 
 @keyframes rotate {
   from {
