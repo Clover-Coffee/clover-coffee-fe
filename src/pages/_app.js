@@ -1,6 +1,20 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@/styles/globals.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@/styles/globals.css";
+import Head from "next/head";
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }) {
+  return (
+    <>
+      <Head >
+        <title>Clover Coffee</title>
+        <link
+          rel="shortcut icon"
+          href="/clover-logo.png"
+        />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
+
+export default App;
