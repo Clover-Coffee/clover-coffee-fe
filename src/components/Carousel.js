@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-// import styles from "../styles/Carousel.module.css";
+import styles from "../styles/Carousel.module.css";
 
 const Carousel = (props) => {
   const { coffees } = props;
@@ -17,7 +17,7 @@ const Carousel = (props) => {
   }, [coffees]);
 
   const next = () => {
-    if (currentIndex < length - 3) {
+    if (currentIndex < length - 4) {
       setCurrentIndex((prevState) => prevState + 1);
     }
   };
@@ -55,51 +55,46 @@ const Carousel = (props) => {
   };
 
   return (
-    <div >
-      <div className="carousel-container">
-        <div className="carousel-wrapper">
-          {currentIndex > 0 && (
-            <button onClick={prev} className="left-arrow">
-              &lt;
-            </button>
-          )}
+    <div className={styles["carousel-container"]}>
+      <div className={styles["carousel-wrapper"]}>
+        {currentIndex > 0 && (
+          <button onClick={prev} className={styles["left-arrow"]}>
+            &lt;
+          </button>
+        )}
+        <div
+          className={styles["carousel-content-wrapper"]}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+        >
           <div
-            className="carousel-content-wrapper"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
+            className={styles["carousel-content"]}
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            <div
-              className="carousel-content"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {coffees.map((coffee) => {
-                return (
-                  <div key={coffee.id}>
-                    <Link
-                      href={`/coffee/${coffee.id}`} passHref
-                      style={{ textDecoration: "none" }}
-                    >
-                      <img
-                        style={{
-                          objectFit: "cover",
-                          width: "100%",
-                          height: "100%",
-                        }}
-                        src={coffee.image}
-                        alt="coffee-bag"
-                      />
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
+            {coffees.map((coffee) => {
+              return (
+                <div key={coffee.id}>
+                  <Link href={`/coffee/${coffee.id}`} passHref>
+                    <img
+                      style={{
+                        objectFit: "cover",
+                        width: "100%",
+                        height: "100%",
+                      }}
+                      src={coffee.image}
+                      alt="coffee-bag"
+                    />
+                  </Link>
+                </div>
+              );
+            })}
           </div>
-          {currentIndex < length - 1 && (
-            <button onClick={next} className="right-arrow">
-              &gt;
-            </button>
-          )}
         </div>
+        {currentIndex < length - 1 && (
+          <button onClick={next} className={styles["right-arrow"]}>
+            &gt;
+          </button>
+        )}
       </div>
     </div>
   );

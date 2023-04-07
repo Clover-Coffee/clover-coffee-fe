@@ -1,26 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
-import Image from 'next/image';
-
+import Image from "next/image";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
+  const [scrollPos, setScrollPos] = useState(0);
 
   const handleClick = () => {
     setClick(!click);
   };
 
+  const handleScroll = () => {
+    setScrollPos(window.pageYOffset);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const navbarClasses = ["nav-color"];
+  if (scrollPos > 100) {
+    navbarClasses.push("scrolled");
+  }
+
+  const rotateDeg = scrollPos / 3;
+  const rotationStyle = {
+    transform: `rotate(${rotateDeg}deg)`,
+  };
+
   return (
-    <div
-      className="nav-color"
-      // style={{
-      //   backgroundColor: "white",
-      //   borderBottom: ".5px solid rgb(172, 172, 172)",
-      // }}
-    >
-      <nav className="nav-bar navbar-static-top">
+    <div className={navbarClasses.join(" ")}>
+      <nav className={`nav-bar header-bg`}>
         <form>
           <IoIosSearch className="searchIcon" size="20px" />
           <input
@@ -29,37 +44,45 @@ const NavBar = () => {
             placeholder="Search Products"
           />
         </form>
-        <Link href="/" style={{ textDecoration: "none" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <Image src="/clover-logo.png" alt="Clover Logo" className="logo" width={200} height={200} />
-        </Link>
+        <div className="logo-container">
+          <Link href="/" style={{ textDecoration: "none" }}>
+            <Image
+              src="/clover-logo.png"
+              alt="Clover Logo"
+              className="logo"
+              width={200}
+              height={200}
+              style={rotationStyle}
+            />
+          </Link>
+        </div>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="navbar-btns">
             <Link href="/" style={{ textDecoration: "none" }}>
-              HOME
+              <span className="navbar-btn-text">HOME</span>
             </Link>
           </li>
           <li className="navbar-btns">
             <Link href="/about" style={{ textDecoration: "none" }}>
-              ABOUT
+              <span className="navbar-btn-text">ABOUT</span>
             </Link>
           </li>
           <li className="navbar-btns">
             <Link href="/contact" style={{ textDecoration: "none" }}>
-              CONTACT
+              <span className="navbar-btn-text">CONTACT</span>
             </Link>
           </li>
           <li className="navbar-btns">
             <Link href="/cart" style={{ textDecoration: "none" }}>
-              CART
+              <span className="navbar-btn-text">CART</span>
             </Link>
           </li>
         </ul>
         <div className="burger">
           {click ? (
-            <FaTimes onClick={handleClick} size={22} />
+            <FaTimes onClick={handleClick} size={22} aria-label="Open menu" />
           ) : (
-            <FaBars onClick={handleClick} size={22} />
+            <FaBars onClick={handleClick} size={22} aria-label="Close menu" />
           )}
         </div>
       </nav>

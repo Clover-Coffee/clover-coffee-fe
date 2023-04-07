@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import AddModal from "../components/AddModal";
 import Layout from "@/components/Layout";
 import Carousel from "@/components/Carousel";
+import styles from "@/styles/shopall.module.css";
 
 const ShopAll = ({ coffees }) => {
   const [showModal, setShowModal] = useState(false);
@@ -50,20 +51,20 @@ const ShopAll = ({ coffees }) => {
     <Layout>
       <div className="productsContainer">
         <section className="products-section">
-          <h2 id="featured-title">Stumptown Coffee</h2>
+          <h2 className={styles.featured}>Stumptown Coffee</h2>
           <Carousel coffees={stumpsCoffee} />
         </section>
         <section className="products-section">
-          <h2 id="featured-title">White Noise Coffee</h2>
-          <Carousel coffees={whitenoiseCoffee} />
-        </section>
-        <section className="products-section">
-          <h2 id="featured-title">Peets Coffee</h2>
+          <h2 className={styles.featured}>Peets Coffee</h2>
           <Carousel coffees={peetsCoffee} />
         </section>
         <section className="products-section">
-          <h2 id="featured-title">Partners Coffee</h2>
+          <h2 className={styles.featured}>Partners Coffee</h2>
           <Carousel coffees={partnersCoffee} />
+        </section>
+        <section className="products-section">
+          <h2 className={styles.featured}>White Noise Coffee</h2>
+          <Carousel coffees={whitenoiseCoffee} />
         </section>
 
         <Button
@@ -72,7 +73,7 @@ const ShopAll = ({ coffees }) => {
           size="md"
           className="mt-4 w-100"
         >
-          ADD ITEM
+          ADD NEW COFFEE
         </Button>
         {showModal && (
           <AddModal
