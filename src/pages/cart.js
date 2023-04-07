@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Table, Row, Button } from "react-bootstrap";
 import Layout from "@/components/Layout";
+import styles from "@/styles/cart.module.css";
 
 const Cart = ({ cart, setCart }) => {
   const [subTotal, setSubTotal] = React.useState(0);
@@ -44,7 +45,7 @@ const Cart = ({ cart, setCart }) => {
   return (
     <Layout>
       <div>
-        <Container className="cartContainer">
+        <Container className={styles.cartContainer}>
           <Row>
             <div className="col-9 cartShow">
               <Table
