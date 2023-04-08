@@ -1,13 +1,12 @@
 .coffeePage {
   height: 80%;
-  display: flex;
-  align-items: center;
   margin-top: 2%;
 }
 
 .singularCoffee {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  height: 60%;
   margin-top: 4%;
 }
 
@@ -20,9 +19,9 @@
 
 .specificCoffeeImg {
   background-color: white;
-  height: 70%;
-  width: 70%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   margin-bottom: 5%;
 }
 
@@ -133,7 +132,7 @@
 
 
 
-.submitBtn button[type="submit"] {
+.submitBtn{
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -144,11 +143,11 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.submitBtn button[type="submit"]:hover {
+.submitBtn:hover {
   background-color: #0062cc;
 }
 
-.closeBtn button {
+.closeBtn {
   background-color: #f8f9fa;
   border: none;
   border-radius: 5px;
@@ -159,7 +158,7 @@
   margin-top: 10px;
 }
 
-.closeBtn button:hover {
+.closeBtn :hover {
   background-color: #e2e6ea;
 }
 .description-label {
