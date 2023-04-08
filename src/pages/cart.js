@@ -39,7 +39,7 @@ const Cart = () => {
     let fees = 0;
     cart.forEach((coffee) => {
       let quantity = coffee.quantity;
-      fees += coffee.price * quantity * 0.03;
+      fees += coffee.price * quantity * 0.03 + .10;
     });
     tax = (Math.round(fees * 100) / 100).toFixed(2);
     setcloverProcessingFee(fees);
