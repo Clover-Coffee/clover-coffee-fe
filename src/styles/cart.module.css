@@ -1,12 +1,27 @@
 .cartContainer {
-    margin-top: 8rem;
-    height: 89vh
+  margin-top: 8rem;
+  height: 89vh;
 }
 
 .cartBtn {
-    margin: 0 3%;
+  border: none;
+  background-color: transparent;
+  font-size: 1.4rem;
+  padding: 0;
+  margin: 0 8%;
+}
+
+.cartBtn:hover {
+  cursor: pointer;
 }
 
 .deleteBtn {
-    margin-left: 20%;
+  font-size: 1rem;
+  margin-left: 10%;
+}
+
+.btnContainer {
+    padding-bottom: 5%;
+    border-bottom: 1px solid black;
+    width: 20%;
 }

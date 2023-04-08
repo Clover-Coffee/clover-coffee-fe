@@ -4,6 +4,7 @@ import { Container, Table, Row, Button } from "react-bootstrap";
 import Layout from "@/components/Layout";
 import styles from "@/styles/cart.module.css";
 import { CartContext } from "@/CartContext";
+import Link from "next/link";
 
 const Cart = () => {
   const { cart, setCart, addItemToCart, removeItemFromCart, decreaseQuantity } =
@@ -44,7 +45,6 @@ const Cart = () => {
     setTotal(total);
   }, [cart]);
 
-
   return (
     <Layout>
       <div>
@@ -70,36 +70,39 @@ const Cart = () => {
                   {cart.map((coffee) => (
                     <tr className="cartDetails" key={coffee.id}>
                       <td>
-                        <img
-                          className="cartImage"
-                          src={coffee.image}
-                          alt={coffee.name}
-                          style={{ maxWidth: "100%" }}
-                        />
+                        <Link href={`/coffee/${coffee.id}`} passHref>
+                          <img
+                            className="cartImage"
+                            src={coffee.image}
+                            alt={coffee.name}
+                            style={{ maxWidth: "100%" }}
+                          />
+                        </Link>
                       </td>
                       <td>{coffee.name}</td>
                       <td>${coffee.price}</td>
                       <td>
-                        <button
-                          className={`${styles.addBtn} ${styles.cartBtn}`}
-                          onClick={() => addItemToCart(coffee)}
-                        >
-                          +
-                        </button>
-                        {coffee.quantity}
-
-                        <button
-                          className={`${styles.decreaseBtn} ${styles.cartBtn}`}
-                          onClick={() => decreaseQuantity(coffee.id)}
-                        >
-                          -
-                        </button>
-                        <button
+                        <span className={styles.btnContainer}>
+                          <span
+                            className={`${styles.decreaseBtn} ${styles.cartBtn}`}
+                            onClick={() => decreaseQuantity(coffee.id)}
+                          >
+                            -
+                          </span>
+                          {coffee.quantity}
+                          <span
+                            className={`${styles.addBtn} ${styles.cartBtn}`}
+                            onClick={() => addItemToCart(coffee)}
+                          >
+                            +
+                          </span>
+                        </span>
+                        <span
                           className={`${styles.deleteBtn} ${styles.cartBtn}`}
                           onClick={() => removeItemFromCart(coffee.id)}
                         >
                           delete
-                        </button>
+                        </span>
                       </td>
                     </tr>
                   ))}
