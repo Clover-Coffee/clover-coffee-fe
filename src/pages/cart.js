@@ -11,8 +11,9 @@ const Cart = () => {
     useContext(CartContext);
 
   const [subTotal, setSubTotal] = useState(0);
-  const [tax, setTax] = useState(0);
+  let [tax, setTax] = useState(0);
   const [total, setTotal] = useState(0);
+  const [cloverProcessingFee, setcloverProcessingFee] = useState(0)
 
   useEffect(() => {
     let sum = 0;
@@ -32,6 +33,16 @@ const Cart = () => {
     });
     tax = (Math.round(tax * 100) / 100).toFixed(2);
     setTax(tax);
+  }, [cart]);
+
+  useEffect(() => {
+    let fees = 0;
+    cart.forEach((coffee) => {
+      let quantity = coffee.quantity;
+      fees += coffee.price * quantity * 0.03 + .10;
+    });
+    tax = (Math.round(fees * 100) / 100).toFixed(2);
+    setcloverProcessingFee(fees);
   }, [cart]);
 
   useEffect(() => {
@@ -116,6 +127,10 @@ const Cart = () => {
               <div className="d-flex justify-content-between mb-4">
                 <h6 className="fw-normal">Tax :</h6>
                 <span>${tax}</span>
+              </div>
+              <div className="d-flex justify-content-between mb-4">
+                <h6 className="fw-normal">Clover Fees :</h6>
+                <span>${cloverProcessingFee}</span>
               </div>
               <div className="d-flex justify-content-between fw-bold">
                 <h6>Total Price :</h6>
