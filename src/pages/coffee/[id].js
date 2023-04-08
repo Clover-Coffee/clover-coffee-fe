@@ -60,6 +60,7 @@ const Coffee = ({ coffees, addToCart }) => {
       console.error("Failed to delete coffee:", response);
     }
   };
+  console.log(showModal);
 
   return (
     <Layout>
@@ -73,10 +74,16 @@ const Coffee = ({ coffees, addToCart }) => {
                 alt={coffee.name}
               />
               <div className={styles.coffeeButtons}>
-                <button className={`${styles.coffeeButton} ${styles.button}`} onClick={handleClick}>
+                <button
+                  className={`${styles.coffeeButton} ${styles.button}`}
+                  onClick={handleClick}
+                >
                   Update Item
                 </button>
-                <button onClick={handleDelete} className={`${styles.coffeeButton} ${styles.button}`}>
+                <button
+                  onClick={handleDelete}
+                  className={`${styles.coffeeButton} ${styles.button}`}
+                >
                   Delete Item
                 </button>
                 <button
@@ -105,35 +112,49 @@ const Coffee = ({ coffees, addToCart }) => {
                 />
               )}
             </div>
-            <div className={styles.productDescription}>
-              <h1 className="productTitle">{coffee.name}</h1>
-              <p className="productPrice">${coffee.price}</p>
-              <div className="productSpecs">
-                <p>
-                  {" "}
-                  <span>Product Description:</span> {coffee.description}
-                </p>
-              </div>
-              <div className={styles.cartButtons}>
-                <Button
-                  onClick={() => addToCart(coffee.id)}
-                  variant="dark"
-                  size="md"
-                  className={`${styles.button} ${styles.addToCartBtn}`}
-                >
-                  Add to Cart
-                </Button>
-                <Link href="/cart" className={`${styles.viewCartBtn}`}>
-                  <Button variant="dark" size="md" className={`${styles.button} ${styles.viewCartBtn}`}>
-                    View Cart
+            <section className={styles.productDescription}>
+              <div className={styles.productBox}>
+                <h1 className={styles.productTitle}>{coffee.name}</h1>
+                <p className={styles.productPrice}>${coffee.price}</p>
+                <div className={styles.productSpecs}>
+                  <p>
+                    {" "}
+                    <span></span> {coffee.description}
+                  </p>
+                </div>
+                <div className={styles.cartButtons}>
+                  <Button
+                    onClick={() => addToCart(coffee.id)}
+                    variant="dark"
+                    size="md"
+                    className={styles.addViewBtn}
+                  >
+                    Add to Cart
                   </Button>
-                </Link>
+                  <Link href="/cart" >
+                    <Button
+                      variant="dark"
+                      size="md"
+                      className={styles.addViewBtn}
+                    >
+                      View Cart
+                    </Button>
+                  </Link>
+                </div>
               </div>
-            </div>
+            </section>
           </section>
         </div>
       ) : (
-        <h1>Coffee Not Found</h1>
+        <div>
+          <h1 className={styles.deleted}>Coffee Not Found</h1>
+          <button
+            className={`${styles.deletedBtn}`}
+            onClick={() => router.push("/shopall")}
+          >
+            Go Back
+          </button>
+        </div>
       )}
     </Layout>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../styles/coffee.module.css";
 
 function UpdateItemModal({
   item,
@@ -25,6 +26,7 @@ function UpdateItemModal({
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              className={styles.inputContainer}
             />
           </label>
           <label className="description-label">
@@ -33,6 +35,7 @@ function UpdateItemModal({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               style={{ color: "black" }}
+              className={styles.inputContainer}
             />
           </label>
           <label>
@@ -41,6 +44,7 @@ function UpdateItemModal({
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
+              className={styles.inputContainer}
             />
           </label>
           <select
@@ -49,7 +53,6 @@ function UpdateItemModal({
             id="category-dropdown"
             onChange={(e) => setBrand(e.target.value)}
           >
-            <p>Brand</p>
             <option value="">Select a Brand</option>
             <option value="stumptown">Stumptown</option>
             <option value="whitenoise">White Noise</option>
@@ -62,12 +65,13 @@ function UpdateItemModal({
               type="text"
               value={image}
               onChange={(e) => setImage(e.target.value)}
+              className={styles.inputContainer}
             />
           </label>
 
-          <button type="submit">Update Item</button>
+          <button type="submit" className={styles.submitBtn}>Update Item</button>
         </form>
-        <button onClick={onClose}>Close</button>
+        <button onClick={onClose} className={styles.closeBtn}>Close</button>
       </div>
     </div>
   );
