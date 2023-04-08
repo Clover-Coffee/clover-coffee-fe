@@ -2,3 +2,11 @@
     margin-top: 8rem;
     height: 89vh
 }
+
+.cartBtn {
+    margin: 0 3%;
+}
+
+.deleteBtn {
+    margin-left: 20%;
+}
