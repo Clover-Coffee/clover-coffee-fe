@@ -16,7 +16,6 @@ function UpdateItemModal({
   setImage,
   image,
 }) {
-  console.log("first")
   return (
     <div className={styles.overlay}>
       <div className={styles.modalContent}>
