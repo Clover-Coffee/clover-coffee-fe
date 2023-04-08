@@ -28,7 +28,7 @@ const Cart = () => {
     let tax = 0;
     cart.forEach((coffee) => {
       let quantity = coffee.quantity;
-      tax += coffee.price * quantity * 0.13;
+      tax += coffee.price * quantity * 0.09;
     });
     tax = (Math.round(tax * 100) / 100).toFixed(2);
     setTax(tax);
