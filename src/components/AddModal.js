@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../styles/coffee.module.css";
 
 function AddModal({ 
     addItems,
@@ -15,13 +16,13 @@ function AddModal({
     image, }) {
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-      <form className="updateForm" onSubmit={(event) => {
+    <div className={styles.overlay}>
+      <div className={styles.modalContent}>
+      <form className={styles.updateForm} onSubmit={(event) => {
             event.preventDefault();  
             addItems(); 
         }}>
-          <label className="updateLabel">
+          <label className={styles.updateLabel}>
             Title:
             <input
               type="text"
@@ -29,7 +30,7 @@ function AddModal({
               onChange={(e) => setName(e.target.value)}
             />
           </label>
-          <label className="description-label">
+          <label className={styles.descriptionLabel}>
             <p>Description:</p>
             <textarea
               value={description}
@@ -66,9 +67,9 @@ function AddModal({
             />
           </label>
 
-          <button type="submit">Add Item</button>
+          <button className={styles.submitBtn} type="submit">Add Item</button>
         </form>
-        <button onClick={onClose}>Close</button>
+        <button className={styles.closeBtn} onClick={onClose}>Close</button>
       </div>
     </div>
   );
