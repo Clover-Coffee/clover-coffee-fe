@@ -16,11 +16,12 @@ function UpdateItemModal({
   setImage,
   image,
 }) {
+  console.log("first")
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <form className="updateForm" onSubmit={handleSubmit}>
-          <label className="updateLabel">
+    <div className={styles.overlay}>
+      <div className={styles.modalContent}>
+        <form className={styles.updateForm} onSubmit={handleSubmit}>
+          <label className={styles.updateLabel}>
             Name:
             <input
               type="text"
@@ -29,7 +30,7 @@ function UpdateItemModal({
               className={styles.inputContainer}
             />
           </label>
-          <label className="description-label">
+          <label className={styles.descriptionLabel}>
             <p>Description:</p>
             <textarea
               value={description}

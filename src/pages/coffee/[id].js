@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useContext } from "react";
 import { Button } from "react-bootstrap";
-import UpdateItemModal from "@/components/UpdateModal";
+import UpdateItemModal from "@/components/UpdateItemModal";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
@@ -101,6 +101,23 @@ const Coffee = ({ coffees }) => {
                 >
                   Update Item
                 </button>
+                {showModal && (
+                  <UpdateItemModal
+                    item={coffee}
+                    onClose={onClose}
+                    handleSubmit={handleSubmit}
+                    setName={setName}
+                    setDescription={setDescription}
+                    setPrice={setPrice}
+                    name={name}
+                    description={description}
+                    price={price}
+                    setBrand={setBrand}
+                    brand={brand}
+                    setImage={setImage}
+                    image={image}
+                  />
+                )}
                 <button
                   onClick={handleDelete}
                   className={`${styles.coffeeButton} ${styles.button}`}
@@ -114,24 +131,6 @@ const Coffee = ({ coffees }) => {
                   Go Back
                 </button>
               </div>
-
-              {showModal && (
-                <UpdateItemModal
-                  setName={setName}
-                  setDescription={setDescription}
-                  setPrice={setPrice}
-                  handleSubmit={handleSubmit}
-                  name={name}
-                  description={description}
-                  price={price}
-                  image={image}
-                  setImage={setImage}
-                  brand={brand}
-                  setBrand={setBrand}
-                  coffees={coffees}
-                  onClose={onClose}
-                />
-              )}
             </div>
             <section className={styles.productDescription}>
               <div className={styles.productBox}>
