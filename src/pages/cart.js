@@ -70,39 +70,37 @@ const Cart = () => {
                   {cart.map((coffee) => (
                     <tr className="cartDetails" key={coffee.id}>
                       <td>
-                        <Link href={`/coffee/${coffee.id}`} passHref>
-                          <img
-                            className="cartImage"
-                            src={coffee.image}
-                            alt={coffee.name}
-                            style={{ maxWidth: "100%" }}
-                          />
-                        </Link>
+                        <img
+                          className="cartImage"
+                          src={coffee.image}
+                          alt={coffee.name}
+                          style={{ maxWidth: "100%" }}
+                        />
                       </td>
                       <td>{coffee.name}</td>
                       <td>${coffee.price}</td>
                       <td>
                         <span className={styles.btnContainer}>
-                          <span
-                            className={`${styles.decreaseBtn} ${styles.cartBtn}`}
+                          <button
+                            className={`${styles.cartBtn}`}
                             onClick={() => decreaseQuantity(coffee.id)}
                           >
-                            -
-                          </span>
+                            <span className={`${styles.decreaseBtn}`}>-</span>
+                          </button>
                           {coffee.quantity}
-                          <span
-                            className={`${styles.addBtn} ${styles.cartBtn}`}
+                          <button
+                            className={`${styles.cartBtn}`}
                             onClick={() => addItemToCart(coffee)}
                           >
-                            +
-                          </span>
+                            <span className={`${styles.addBtn}`}>+</span>
+                          </button>
                         </span>
-                        <span
-                          className={`${styles.deleteBtn} ${styles.cartBtn}`}
+                        <button
+                          className={`${styles.cartBtn}`}
                           onClick={() => removeItemFromCart(coffee.id)}
                         >
-                          delete
-                        </span>
+                          <span className={`${styles.deleteBtn}`}>delete</span>
+                        </button>
                       </td>
                     </tr>
                   ))}
