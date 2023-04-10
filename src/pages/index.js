@@ -1,8 +1,9 @@
 import HomePage from "@/components/HomePage";
 import React, { useState, useEffect } from "react";
+import API_BASE_URL from "../../config";
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:8080/items");
+  const res = await fetch(`${API_BASE_URL}/items`);
   const coffees = await res.json();
 
   return {
@@ -17,7 +18,7 @@ export default function Home({ coffees }) {
 
   async function fetchItems() {
     try {
-      const response = await fetch(`http://localhost:8080/items`);
+      const response = await fetch(`${API_BASE_URL}/items`);
       const itemsData = await response.json();
       setItems(itemsData);
     } catch (err) {

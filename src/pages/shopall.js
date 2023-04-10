@@ -4,6 +4,7 @@ import AddModal from "../components/AddModal";
 import Layout from "@/components/Layout";
 import Carousel from "@/components/Carousel";
 import styles from "@/styles/shopall.module.css";
+import API_BASE_URL from "../../config";
 
 const ShopAll = ({ coffees }) => {
   const [showModal, setShowModal] = useState(false);
@@ -25,7 +26,7 @@ const ShopAll = ({ coffees }) => {
   const addItems = async (event) => {
     window.location.reload();
     console.log("clicked");
-    const response = await fetch(`http://localhost:8080/items`, {
+    const response = await fetch(`${API_BASE_URL}/items`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +102,7 @@ const ShopAll = ({ coffees }) => {
 };
 
 ShopAll.getInitialProps = async () => {
-  const res = await fetch("http://localhost:8080/items");
+  const res = await fetch(`${API_BASE_URL}/items`);
   const coffees = await res.json();
 
   return { coffees };

@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "../styles/homepage.module.css";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import API_BASE_URL from "../../config";
 
 export default function HomePage({ coffees }) {
   const [topSellers, setTopSellers] = useState([]);
@@ -25,7 +26,7 @@ export default function HomePage({ coffees }) {
   }, [coffees]);
 
   async function specificCoffee() {
-    const response = await fetch(`http://localhost:8080/items/${id}`);
+    const response = await fetch(`${API_BASE_URL}/${id}`);
     const coffeeData = await response.json();
     setCoffee(coffeeData);
   }

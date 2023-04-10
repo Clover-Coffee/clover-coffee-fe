@@ -8,6 +8,7 @@ import Layout from "@/components/Layout";
 import styles from "../../styles/coffee.module.css";
 import { CartContext } from "@/CartContext";
 import Swal from "sweetalert2";
+import API_BASE_URL from "../../../config";
 
 const Coffee = ({ coffees }) => {
   const router = useRouter();
@@ -52,7 +53,7 @@ const Coffee = ({ coffees }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch(`http://localhost:8080/items/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/items/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +70,7 @@ const Coffee = ({ coffees }) => {
 
   const handleDelete = async (event) => {
     window.location.reload();
-    const response = await fetch(`http://localhost:8080/items/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/items/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -181,7 +182,7 @@ const Coffee = ({ coffees }) => {
 };
 
 Coffee.getInitialProps = async () => {
-  const res = await fetch("http://localhost:8080/items");
+  const res = await fetch(`${API_BASE_URL}/items`);
   const coffees = await res.json();
 
   return { coffees };

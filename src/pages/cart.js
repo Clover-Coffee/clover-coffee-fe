@@ -4,7 +4,6 @@ import { Container, Table, Row, Button } from "react-bootstrap";
 import Layout from "@/components/Layout";
 import styles from "@/styles/cart.module.css";
 import { CartContext } from "@/CartContext";
-import Link from "next/link";
 
 const Cart = () => {
   const { cart, setCart, addItemToCart, removeItemFromCart, decreaseQuantity } =
@@ -41,6 +40,7 @@ const Cart = () => {
       let quantity = coffee.quantity;
       fees += coffee.price * quantity * 0.03 + .10;
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     tax = (Math.round(fees * 100) / 100).toFixed(2);
     setcloverProcessingFee(fees);
   }, [cart]);
