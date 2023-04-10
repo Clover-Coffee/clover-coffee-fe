@@ -1,6 +1,6 @@
 .coffeePage {
   height: 80%;
-  margin-top: 2%;
+  margin-top: 5%;
 }
 
 .singularCoffee {
@@ -19,7 +19,7 @@
 
 .specificCoffeeImg {
   background-color: white;
-  height: 100%;
+  height: 70vh;
   object-fit: cover;
   margin-bottom: 5%;
 }
@@ -42,6 +42,7 @@
   justify-content: space-evenly;
   flex-direction: column;
   background-color: #f8f8f8;
+  height: 100%;
 }
 
 .productBox {
