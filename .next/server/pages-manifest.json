@@ -1,0 +1,13 @@
+{
+  "/_app": "pages/_app.js",
+  "/about": "pages/about.html",
+  "/cart": "pages/cart.html",
+  "/coffee/[id]": "pages/coffee/[id].js",
+  "/_document": "pages/_document.js",
+  "/shopall": "pages/shopall.js",
+  "/api/items": "pages/api/items.js",
+  "/_error": "pages/_error.js",
+  "/contact": "pages/contact.html",
+  "/": "pages/index.js",
+  "/404": "pages/404.html"
+}
