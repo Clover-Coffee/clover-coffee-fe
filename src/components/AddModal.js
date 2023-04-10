@@ -14,7 +14,6 @@ function AddModal({
     brand,
     setImage,
     image, }) {
-
   return (
     <div className={styles.overlay}>
       <div className={styles.modalContent}>
@@ -48,15 +47,16 @@ function AddModal({
           </label>
           <select
             value={brand}
-            name="cateory"
+            name="brand"
             id="brand-dropdown"
             onChange={(e) => setBrand(e.target.value)}
           >
             <p>Brand</p>
             <option value="">Select a Brand</option>
-            <option value="mens">Stumptown</option>
-            <option value="womens">La Colombe</option>
-            <option value="shoes">Partners</option>
+            <option value="stumptown">Stumptown</option>
+            <option value="peets">Peets</option>
+            <option value="partners">Partners</option>
+            <option value="whitenoise">White Noise</option>
           </select>
           <label>
             Image:

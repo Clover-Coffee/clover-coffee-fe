@@ -15,7 +15,7 @@ const ShopAll = ({ coffees }) => {
 
   const handleClick = () => {
     setShowModal(!showModal);
-    console.log(showModal);
+
   };
   const onClose = () => {
     setShowModal(false);
@@ -39,14 +39,14 @@ const ShopAll = ({ coffees }) => {
       console.error("Failed to add item:", response);
     }
   };
-
+  
   const stumpsCoffee = coffees.filter((item) => item.brand === "stumptown");
   const peetsCoffee = coffees.filter((item) => item.brand === "peets");
   const partnersCoffee = coffees.filter((item) => item.brand === "partners");
   const whitenoiseCoffee = coffees.filter(
     (item) => item.brand === "whitenoise"
-  );
-
+    );
+    
   return (
     <Layout>
       <div className={styles.productsContainer}>
