@@ -4,6 +4,7 @@ import { Container, Table, Row, Button } from "react-bootstrap";
 import Layout from "@/components/Layout";
 import styles from "@/styles/cart.module.css";
 import { CartContext } from "@/CartContext";
+import { useRouter } from "next/router";
 
 const Cart = () => {
   const { cart, setCart, addItemToCart, removeItemFromCart, decreaseQuantity } =
@@ -12,7 +13,9 @@ const Cart = () => {
   const [subTotal, setSubTotal] = useState(0);
   let [tax, setTax] = useState(0);
   const [total, setTotal] = useState(0);
-  const [cloverProcessingFee, setcloverProcessingFee] = useState(0)
+  const [cloverProcessingFee, setcloverProcessingFee] = useState(0);
+
+  const router = useRouter();
 
   useEffect(() => {
     let sum = 0;
@@ -38,8 +41,9 @@ const Cart = () => {
     let fees = 0;
     cart.forEach((coffee) => {
       let quantity = coffee.quantity;
-      fees += coffee.price * quantity * 0.03 + .10;
+      fees += coffee.price * quantity * 0.03 + 0.1;
     });
+    fees = (Math.round(fees * 100) / 100).toFixed(2)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     tax = (Math.round(fees * 100) / 100).toFixed(2);
     setcloverProcessingFee(fees);
@@ -55,6 +59,21 @@ const Cart = () => {
     total = (Math.round(total * 100) / 100).toFixed(2);
     setTotal(total);
   }, [cart]);
+
+  const handlePayNow = () => {
+    // Pass the necessary props to the Confirmation page
+    const queryParams = {
+      orderTotal: total,
+      cloverFees: cloverProcessingFee,
+      orderNumber: Math.floor(Math.random() * 1000000),
+    };
+  
+    // Navigate to the Confirmation page
+    router.push({
+      pathname: '/confirmation',
+      query: queryParams,
+    });
+  };
 
   return (
     <Layout>
@@ -136,7 +155,12 @@ const Cart = () => {
                 <h6>Total Price :</h6>
                 <span>${total}</span>
               </div>
-              <Button variant="dark" size="md" className="mt-4 w-100">
+              <Button
+                variant="dark"
+                size="md"
+                className="mt-4 w-100"
+                onClick={handlePayNow}
+              >
                 Pay Now
               </Button>
             </div>
