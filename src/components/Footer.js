@@ -47,6 +47,8 @@ const Footer = () => {
             <a href="https://www.facebook.com/" target="_blank">
               <FaFacebook size={25} style={{ marginRight: "1rem" }} />
             </a>
+          </div>
+          <div>
             <p className="menu">&copy; Clover Coffee</p>
           </div>
           
