@@ -88,7 +88,9 @@
   color: #218802;
   margin-bottom: 5%;
 }
-
+.productTitle {
+  text-align: center;
+}
 .productSpecs {
   margin-bottom: 8%;
 }
@@ -163,4 +165,10 @@
 }
 .description-label {
   display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .singularCoffee {
+    grid-template-columns: 1fr;
+  }
 }

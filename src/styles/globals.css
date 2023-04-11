@@ -4,6 +4,10 @@
   font-family: "Maven Pro", sans-serif;
 }
 
+body {
+  min-width: fit-content;
+}
+
 /* Navbar */
 
 .nav-bar {
@@ -148,12 +152,12 @@ li {
     text-align: center;
   }
 }
-
 @media screen and (max-width: 640px) {
   .footer-container {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 }
+
 @media screen and (min-width: 770px) {
   .logo {
     margin-left: 7.5rem;
@@ -171,8 +175,8 @@ li {
 .footer-container {
   max-width: 1140px;
   margin: auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: row;
   grid-gap: 500px;
 }
 
