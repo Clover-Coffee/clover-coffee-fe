@@ -1,3 +1,27 @@
 .confirmationContainer {
-    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://images.unsplash.com/photo-1499744937866-d7e566a20a61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80");
+    background-size: cover;
+    height: 100vh;
+}
+
+.thankYou {
+    font-size: 3rem;
+    margin-bottom: 1%;
+    color: white;
+}
+
+.community {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 40%;
+    margin: 2% 0;
+    color: white;
+}
+
+.confirmationText {
+    color: white;
 }

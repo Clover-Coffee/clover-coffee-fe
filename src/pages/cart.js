@@ -60,6 +60,16 @@ const Cart = () => {
   }, [cart]);
 
 
+  const handlePayNow = () => {
+
+    router.push({
+      pathname: "/confirmation",
+      query: { orderTotal: total, cloverFees: cloverProcessingFee },
+    });
+  };
+
+
+
 
   return (
     <Layout>
