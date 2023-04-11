@@ -22,8 +22,6 @@
   transition: all 250ms linear;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  max-width: 400px;
-  max-height: 400px;
 }
 
 .carousel-content::-webkit-scrollbar,
@@ -32,7 +30,7 @@
 }
 
 .carousel-content > * {
-  width: 100%;
+  width: calc(100% / 4);
   flex-shrink: 0;
   flex-grow: 1;
 }
@@ -64,6 +62,12 @@
 
 .singleCoffee:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .carousel-content > * {
+    width: calc(100% / 2);
+  }
 }
 
 @media (hover: none) and (pointer: coarse) {
