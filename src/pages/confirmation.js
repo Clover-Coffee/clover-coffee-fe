@@ -4,7 +4,6 @@ import styles from "@/styles/confirmation.module.css";
 import { useRouter } from "next/router";
 
 const Confirmation = () => {
-  // Generate a random order number
   const orderNumber = Math.floor(Math.random() * 1000000000);
   const router = useRouter();
   const orderTotal = router.query.orderTotal;
