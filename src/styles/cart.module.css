@@ -24,3 +24,25 @@
     padding-bottom: 5%;
     border-bottom: 1px solid black;
 }
+
+@media screen and (max-width: 990px) {
+  .row {
+    flex-direction: column;
+    min-width: fit-content;
+  }
+  .cartSum,
+  .cartShow {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768x) {
+  .row {
+    flex-direction: column;
+    min-width: fit-content;
+  }
+  .cartSum,
+  .cartShow {
+    width: 500px;
+  }
+}

@@ -163,7 +163,11 @@ li {
     margin-left: 7.5rem;
   }
 }
-
+@media screen and (max-width: 769px) {
+  .logo {
+    margin-right: 11.5rem;
+  }
+}
 /* Footer */
 
 .footer {
