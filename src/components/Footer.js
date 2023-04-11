@@ -36,7 +36,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="right">
-          <h4 className="about">Connect With Us</h4>
+          <div>
+            <h4 className="about">Connect With Us</h4>
+          </div>
           <div className="social">
             <a href="https://www.linkedin.com/" target="_blank">
               <FaLinkedin size={25} style={{ marginRight: "1rem" }} />
@@ -47,6 +49,8 @@ const Footer = () => {
             <a href="https://www.facebook.com/" target="_blank">
               <FaFacebook size={25} style={{ marginRight: "1rem" }} />
             </a>
+          </div>
+          <div>
             <p className="menu">&copy; Clover Coffee</p>
           </div>
           
