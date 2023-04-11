@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import Layout from "@/components/Layout";
 import styles from "@/styles/confirmation.module.css";
@@ -12,10 +13,11 @@ const Confirmation = () => {
   return (
     <Layout>
       <div className={styles.confirmationContainer}>
-        <h1>Confirmation</h1>
-        <p>Order Number: {orderNumber}</p>
-        <p>Order Total: ${orderTotal}</p>
-        <p>Clover Fees: ${cloverFees}</p>
+        <h1 className={styles.thankYou}>Thank you!</h1>
+        <p className={styles.confirmationText}>Your Order Number is #{orderNumber}</p>
+        <p className={styles.community}>We appreciate your support for our business and the fact that you chose to shop small with us. Your purchase helps support our team and our community, and it wouldn't be possible without the support of customers like you.</p>
+        {/* <p className={styles.confirmationText}>Order Total: ${orderTotal}</p>
+        <p className={styles.confirmationText}>Clover Fees: ${cloverFees}</p> */}
       </div>
     </Layout>
   );

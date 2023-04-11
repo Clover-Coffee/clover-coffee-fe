@@ -61,17 +61,10 @@ const Cart = () => {
   }, [cart]);
 
   const handlePayNow = () => {
-    // Pass the necessary props to the Confirmation page
-    const queryParams = {
-      orderTotal: total,
-      cloverFees: cloverProcessingFee,
-      orderNumber: Math.floor(Math.random() * 1000000),
-    };
-  
-    // Navigate to the Confirmation page
+
     router.push({
-      pathname: '/confirmation',
-      query: queryParams,
+      pathname: "/confirmation",
+      query: { orderTotal: total, cloverFees: cloverProcessingFee },
     });
   };
 

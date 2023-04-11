@@ -33,9 +33,6 @@ export default function HomePage({ coffees }) {
 
   return (
     <div>
-      {/* <section className={styles.greeting}>
-        <h1 className={styles.homeTitle}>Clover Coffee</h1>
-      </section> */}
       <NavBar />
       <section className={styles.pictureContainer}>
         <section className={styles.ctaBtn}>
