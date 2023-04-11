@@ -5,8 +5,6 @@ import Layout from "@/components/Layout";
 import Carousel from "@/components/Carousel";
 import styles from "@/styles/shopall.module.css";
 import API_BASE_URL from "../../config";
-import { useContext } from "react";
-import { SearchContext } from "../SearchContext";
 
 const ShopAll = ({ coffees }) => {
 	const [showModal, setShowModal] = useState(false);
@@ -15,20 +13,16 @@ const ShopAll = ({ coffees }) => {
 	const [price, setPrice] = useState("");
 	const [image, setImage] = useState("");
 	const [brand, setBrand] = useState("");
-  const [filteredCoffees, setFilteredCoffees] = useState(0)
-
-
-	const { query, setQuery } = useContext(SearchContext);
+	const [query, setQuery] = useState("");
+	const [filteredCoffees, setFilteredCoffees] = useState(0);
 
 	const handleSearch = (event) => {
 		setQuery(event.target.value);
 		const searchCoffee = coffees.filter((coffee) =>
 			coffee.name.toLowerCase().includes(query.toLowerCase())
 		);
-    setFilteredCoffees(searchCoffee)
-    
+		setFilteredCoffees(searchCoffee);
 	};
-
 
 	const handleClick = () => {
 		setShowModal(!showModal);
@@ -65,7 +59,6 @@ const ShopAll = ({ coffees }) => {
 
 	return (
 		<Layout>
-
 			{filteredCoffees.length > 0 ? (
 				<ul>
 					<section className="products-section">

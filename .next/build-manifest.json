@@ -25,11 +25,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/coffee/[id]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/coffee/[id].js"
-    ],
     "/shopall": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
