@@ -30,30 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/about": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/about.js"
-    ],
     "/cart": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/cart.js"
-    ],
-    "/coffee/[id]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/coffee/[id].js"
-    ],
-    "/contact": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/contact.js"
-    ],
-    "/shopall": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/shopall.js"
     ]
   },
   "ampFirstPages": []

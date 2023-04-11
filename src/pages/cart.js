@@ -40,6 +40,7 @@ const Cart = () => {
       let quantity = coffee.quantity;
       fees += coffee.price * quantity * 0.03 + .10;
     });
+    fees = (Math.round(fees * 100) / 100).toFixed(2)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     tax = (Math.round(fees * 100) / 100).toFixed(2);
     setcloverProcessingFee(fees);
