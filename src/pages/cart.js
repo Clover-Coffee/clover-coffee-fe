@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState, useContext } from "react";
 import { Container, Table, Row, Button } from "react-bootstrap";
 import Layout from "@/components/Layout";
@@ -60,27 +59,14 @@ const Cart = () => {
     setTotal(total);
   }, [cart]);
 
-  const handlePayNow = () => {
-    // Pass the necessary props to the Confirmation page
-    const queryParams = {
-      orderTotal: total,
-      cloverFees: cloverProcessingFee,
-      orderNumber: Math.floor(Math.random() * 1000000),
-    };
-  
-    // Navigate to the Confirmation page
-    router.push({
-      pathname: '/confirmation',
-      query: queryParams,
-    });
-  };
+
 
   return (
     <Layout>
       <div>
         <Container className={styles.cartContainer}>
-          <Row>
-            <div className="col-9 cartShow">
+          <Row className={styles.row}>
+            <div className={`col-9 ${styles.cartShow}`}>
               <Table
                 className="table"
                 bordered
@@ -137,7 +123,7 @@ const Cart = () => {
                 </tbody>
               </Table>
             </div>
-            <div className="col-3 cartSum boxShadow bg-light p-4">
+            <div className={`col-3 ${styles.cartSum} boxShadow bg-light p-4`}>
               <h5 className="text-left mb-4 pb-2">Your Cart</h5>
               <div className="d-flex justify-content-between mb-3">
                 <h6 className="fw-normal">SubTotal Price :</h6>
@@ -159,7 +145,6 @@ const Cart = () => {
                 variant="dark"
                 size="md"
                 className="mt-4 w-100"
-                onClick={handlePayNow}
               >
                 Pay Now
               </Button>
