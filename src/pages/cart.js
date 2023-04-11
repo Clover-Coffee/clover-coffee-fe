@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState, useContext } from "react";
 import { Container, Table, Row, Button } from "react-bootstrap";
 import Layout from "@/components/Layout";
@@ -42,7 +43,7 @@ const Cart = () => {
       let quantity = coffee.quantity;
       fees += coffee.price * quantity * 0.03 + 0.1;
     });
-    fees = (Math.round(fees * 100) / 100).toFixed(2)
+    fees = (Math.round(fees * 100) / 100).toFixed(2);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     tax = (Math.round(fees * 100) / 100).toFixed(2);
     setcloverProcessingFee(fees);
@@ -59,17 +60,12 @@ const Cart = () => {
     setTotal(total);
   }, [cart]);
 
-
   const handlePayNow = () => {
-
     router.push({
       pathname: "/confirmation",
       query: { orderTotal: total, cloverFees: cloverProcessingFee },
     });
   };
-
-
-
 
   return (
     <Layout>
@@ -155,6 +151,7 @@ const Cart = () => {
                 variant="dark"
                 size="md"
                 className="mt-4 w-100"
+                onClick={handlePayNow}
               >
                 Pay Now
               </Button>
