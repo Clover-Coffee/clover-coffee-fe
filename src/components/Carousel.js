@@ -5,19 +5,21 @@ import styles from "../styles/Carousel.module.css";
 
 const Carousel = (props) => {
   const { coffees } = props;
-  // console.log(coffees);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [length, setLength] = useState(coffees.length);
 
   const [touchPosition, setTouchPosition] = useState(null);
 
+  const numVisibleItems = 4;
+
   useEffect(() => {
-    setLength(coffees.length);
+    setLength(coffees.length / Math.ceil(numVisibleItems));
   }, [coffees]);
 
+  
   const next = () => {
-    if (currentIndex < length - 4) {
+    if (currentIndex < length) {
       setCurrentIndex((prevState) => prevState + 1);
     }
   };

@@ -181,7 +181,6 @@ li {
   margin: auto;
   display: flex;
   flex-direction: row;
-  grid-gap: 500px;
 }
 
 .left {
@@ -207,7 +206,7 @@ li {
   padding: 1rem;
 }
 .social {
-  margin-top: 2.5rem;
+
   display: flex;
   flex-direction: row;
   align-items: center;
