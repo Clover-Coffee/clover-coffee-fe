@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/Clover-Coffee/clover-coffee-fe">
     <img src="public/clover-logo.png" alt="Logo" width="80" height="80">
   </a>
 
