@@ -56,7 +56,6 @@ const NavBar = () => {
             />
           </Link>
         </div>
-        <div className="nav-bar-container">
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="navbar-btns">
               <Link href="/" style={{ textDecoration: "none" }}>
@@ -79,7 +78,6 @@ const NavBar = () => {
               </Link>
             </li>
           </ul>
-        </div>
         <div className="burger">
           {click ? (
             <FaTimes onClick={handleClick} size={22} aria-label="Open menu" />

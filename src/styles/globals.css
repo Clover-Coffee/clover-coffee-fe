@@ -64,6 +64,7 @@ li {
   align-items: center;
   gap: 2rem;
   margin-right: 2rem;
+  margin-bottom: 0;
 }
 
 .nav-menu li button {
@@ -99,12 +100,6 @@ li {
   font-size: 1rem;
   text-transform: uppercase;
   color: #218802;
-}
-
-.nav-bar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .logo-container {
