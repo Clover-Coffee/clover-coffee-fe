@@ -41,13 +41,13 @@ const Footer = () => {
           </div>
           <div className="social">
             <a href="https://www.linkedin.com/" target="_blank">
-              <FaLinkedin size={25} style={{ marginRight: "1rem", color: "#21880" }} />
+              <FaLinkedin size={25} style={{ marginRight: "1rem"}} />
             </a>
             <a href="https://www.instagram.com/" target="_blank">
-              <FaInstagram size={25} style={{ marginRight: "1rem", color: "#21880"  }} />
+              <FaInstagram size={25} style={{ marginRight: "1rem"}} />
             </a>
             <a href="https://www.facebook.com/" target="_blank">
-              <FaFacebook size={25} style={{ marginRight: "1rem", color: "#21880"  }} />
+              <FaFacebook size={25} style={{ marginRight: "1rem"}} />
             </a>
           </div>
           <div>
