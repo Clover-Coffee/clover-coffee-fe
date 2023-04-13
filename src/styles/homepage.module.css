@@ -119,6 +119,10 @@
   transition: transform 0.2s ease-in-out;
 }
 
+.brewText {
+  color: #218802;
+}
+
 .brewLink:hover {
   transform: scale(1.1);
 }

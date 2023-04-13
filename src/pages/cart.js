@@ -13,7 +13,7 @@ const Cart = () => {
     useContext(CartContext);
 
   const [subTotal, setSubTotal] = useState(0);
-  let [tax, setTax] = useState(0);
+  const [tax, setTax] = useState(0);
   const [total, setTotal] = useState(0);
   const [cloverProcessingFee, setCloverProcessingFee] = useState(0);
   const [totalCloverProcessingFees, setTotalCloverProcessingFees] = useState(0);

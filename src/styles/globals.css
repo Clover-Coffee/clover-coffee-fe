@@ -91,6 +91,10 @@ li {
   background-color: transparent;
 }
 
+.navbar-btn-text {
+  color: #218802;
+}
+
 .navbar-btns {
   font-size: 1rem;
   text-transform: uppercase;

@@ -92,7 +92,7 @@ export default function HomePage({ coffees }) {
                 src="https://cdn.shopify.com/s/files/1/0249/4283/7837/files/Coffee-Icons-Outline-Individual_french-press_edit_360x.png?v=1672774158"
                 alt="French Press"
               />
-              <span>French Press</span>
+              <span className={styles.brewText}>French Press</span>
             </a>
           </div>
           <div className={styles.brewLink}>
