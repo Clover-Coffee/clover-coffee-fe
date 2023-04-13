@@ -15,8 +15,6 @@ const Cart = () => {
   const [subTotal, setSubTotal] = useState(0);
   const [tax, setTax] = useState(0);
   const [total, setTotal] = useState(0);
-  const [cloverProcessingFee, setCloverProcessingFee] = useState(0);
-  const [totalCloverProcessingFees, setTotalCloverProcessingFees] = useState(0);
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
@@ -42,17 +40,6 @@ const Cart = () => {
   }, [cart]);
 
   useEffect(() => {
-    let fees = 0;
-    cart.forEach((coffee) => {
-      let quantity = coffee.quantity;
-      fees += coffee.price * quantity * 0.03 + 0.1;
-    });
-    fees = (Math.round(fees * 100) / 100).toFixed(2);
-    setCloverProcessingFee(fees);
-    setTotalCloverProcessingFees((prevTotalFees) => prevTotalFees + parseFloat(fees)); 
-  }, [cart]);
-
-  useEffect(() => {
     let total = 0;
     cart.forEach((coffee) => {
       let quantity = coffee.quantity;
@@ -69,7 +56,6 @@ const Cart = () => {
       setTimeout(() => {
         router.push({
           pathname: "/confirmation",
-          query: { orderTotal: total, cloverFees: cloverProcessingFee, totalCloverFees: totalCloverProcessingFees },
         });
         setCart([]);
         setLoading(false);
@@ -159,10 +145,6 @@ const Cart = () => {
               <div className="d-flex justify-content-between mb-4">
                 <h6 className="fw-normal">Tax :</h6>
                 <span>${tax}</span>
-              </div>
-              <div className="d-flex justify-content-between mb-4">
-                <h6 className="fw-normal">Clover Fees :</h6>
-                <span>${cloverProcessingFee}</span>
               </div>
               <div className="d-flex justify-content-between fw-bold">
                 <h6>Total Price :</h6>
