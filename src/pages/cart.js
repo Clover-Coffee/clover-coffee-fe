@@ -72,95 +72,98 @@ const Cart = () => {
   return (
     <Layout>
       <div>
-        {loading && (
+        {loading ? (
           <div className={styles.loaderContainer}>
             <ProgressBar height={80} width={80} />
           </div>
-        )}
-        <Container className={styles.cartContainer}>
-          <Row className={styles.row}>
-            <div className={`col-9 ${styles.cartShow}`}>
-              <Table
-                className="table"
-                bordered
-                hover
-                responsive="sm"
-                style={{ tableLayout: "fixed" }}
-              >
-                <thead>
-                  <tr>
-                    <th>Product Image</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                  </tr>
-                </thead>
-                <tbody className="cartColumns">
-                  {cart.map((coffee) => (
-                    <tr className="cartDetails" key={coffee.id}>
-                      <td>
-                        <img
-                          className="cartImage"
-                          src={coffee.image}
-                          alt={coffee.name}
-                          style={{ maxWidth: "100%" }}
-                        />
-                      </td>
-                      <td>{coffee.name}</td>
-                      <td>${coffee.price}</td>
-                      <td>
-                        <span className={styles.btnContainer}>
-                          <button
-                            className={`${styles.cartBtn}`}
-                            onClick={() => decreaseQuantity(coffee.id)}
-                          >
-                            <span className={`${styles.decreaseBtn}`}>-</span>
-                          </button>
-                          {coffee.quantity}
-                          <button
-                            className={`${styles.cartBtn}`}
-                            onClick={() => addItemToCart(coffee)}
-                          >
-                            <span className={`${styles.addBtn}`}>+</span>
-                          </button>
-                        </span>
-                        <button
-                          className={`${styles.cartBtn}`}
-                          onClick={() => removeItemFromCart(coffee.id)}
-                        >
-                          <span className={`${styles.deleteBtn}`}>delete</span>
-                        </button>
-                      </td>
+        ) : (
+          <Container className={styles.cartContainer}>
+            <Row className={styles.row}>
+              <div className={`col-9 ${styles.cartShow}`}>
+                <Table
+                  className="table"
+                  bordered
+                  hover
+                  responsive="sm"
+                  style={{ tableLayout: "fixed" }}
+                >
+                  <thead>
+                    <tr>
+                      <th>Product Image</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
                     </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </div>
-            <div className={`col-3 ${styles.cartSum} boxShadow bg-light p-4`}>
-              <h5 className="text-left mb-4 pb-2">Your Cart</h5>
-              <div className="d-flex justify-content-between mb-3">
-                <h6 className="fw-normal">SubTotal Price :</h6>
-                <span>${subTotal}</span>
+                  </thead>
+                  <tbody className="cartColumns">
+                    {cart.map((coffee) => (
+                      <tr className="cartDetails" key={coffee.id}>
+                        <td>
+                          <img
+                            className="cartImage"
+                            src={coffee.image}
+                            alt={coffee.name}
+                            style={{ maxWidth: "100%" }}
+                          />
+                        </td>
+                        <td>{coffee.name}</td>
+                        <td>${coffee.price}</td>
+                        <td>
+                          <span className={styles.btnContainer}>
+                            <button
+                              className={`${styles.cartBtn}`}
+                              onClick={() => decreaseQuantity(coffee.id)}
+                            >
+                              <span className={`${styles.decreaseBtn}`}>-</span>
+                            </button>
+                            {coffee.quantity}
+                            <button
+                              className={`${styles.cartBtn}`}
+                              onClick={() => addItemToCart(coffee)}
+                            >
+                              <span className={`${styles.addBtn}`}>+</span>
+                            </button>
+                          </span>
+                          <button
+                            className={`${styles.cartBtn}`}
+                            onClick={() => removeItemFromCart(coffee.id)}
+                          >
+                            <span className={`${styles.deleteBtn}`}>
+                              delete
+                            </span>
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
               </div>
-              <div className="d-flex justify-content-between mb-4">
-                <h6 className="fw-normal">Tax :</h6>
-                <span>${tax}</span>
+              <div className={`col-3 ${styles.cartSum} boxShadow bg-light p-4`}>
+                <h5 className="text-left mb-4 pb-2">Your Cart</h5>
+                <div className="d-flex justify-content-between mb-3">
+                  <h6 className="fw-normal">SubTotal Price :</h6>
+                  <span>${subTotal}</span>
+                </div>
+                <div className="d-flex justify-content-between mb-4">
+                  <h6 className="fw-normal">Tax :</h6>
+                  <span>${tax}</span>
+                </div>
+                <div className="d-flex justify-content-between fw-bold">
+                  <h6>Total Price :</h6>
+                  <span>${total}</span>
+                </div>
+                <Button
+                  variant="dark"
+                  size="md"
+                  className="mt-4 w-100"
+                  onClick={handlePayNow}
+                >
+                  Pay Now
+                </Button>
               </div>
-              <div className="d-flex justify-content-between fw-bold">
-                <h6>Total Price :</h6>
-                <span>${total}</span>
-              </div>
-              <Button
-                variant="dark"
-                size="md"
-                className="mt-4 w-100"
-                onClick={handlePayNow}
-              >
-                Pay Now
-              </Button>
-            </div>
-          </Row>
-        </Container>
+            </Row>
+          </Container>
+        )}
       </div>
     </Layout>
   );
