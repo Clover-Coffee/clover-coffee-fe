@@ -15,7 +15,8 @@ const Cart = () => {
   const [subTotal, setSubTotal] = useState(0);
   let [tax, setTax] = useState(0);
   const [total, setTotal] = useState(0);
-  const [cloverProcessingFee, setcloverProcessingFee] = useState(0);
+  const [cloverProcessingFee, setCloverProcessingFee] = useState(0);
+  const [totalCloverProcessingFees, setTotalCloverProcessingFees] = useState(0);
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
@@ -47,9 +48,8 @@ const Cart = () => {
       fees += coffee.price * quantity * 0.03 + 0.1;
     });
     fees = (Math.round(fees * 100) / 100).toFixed(2);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    tax = (Math.round(fees * 100) / 100).toFixed(2);
-    setcloverProcessingFee(fees);
+    setCloverProcessingFee(fees);
+    setTotalCloverProcessingFees((prevTotalFees) => prevTotalFees + parseFloat(fees)); 
   }, [cart]);
 
   useEffect(() => {
@@ -65,15 +65,14 @@ const Cart = () => {
 
   const handlePayNow = () => {
     if (cart.length > 0) {
-      setLoading(true); // set loading to true when the pay now button is clicked
+      setLoading(true);
       setTimeout(() => {
-        // simulate payment processing delay
         router.push({
           pathname: "/confirmation",
-          query: { orderTotal: total, cloverFees: cloverProcessingFee },
+          query: { orderTotal: total, cloverFees: cloverProcessingFee, totalCloverFees: totalCloverProcessingFees },
         });
         setCart([]);
-        setLoading(false); // set loading to false when payment is complete
+        setLoading(false);
       }, 3000);
     } else {
       Swal.fire({
