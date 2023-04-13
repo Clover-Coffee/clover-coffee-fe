@@ -6,6 +6,7 @@ import styles from "@/styles/cart.module.css";
 import { CartContext } from "@/CartContext";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
+import { ProgressBar } from "react-loader-spinner";
 
 const Cart = () => {
   const { cart, setCart, addItemToCart, removeItemFromCart, decreaseQuantity } =
@@ -15,6 +16,7 @@ const Cart = () => {
   let [tax, setTax] = useState(0);
   const [total, setTotal] = useState(0);
   const [cloverProcessingFee, setcloverProcessingFee] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -63,10 +65,16 @@ const Cart = () => {
 
   const handlePayNow = () => {
     if (cart.length > 0) {
-      router.push({
-        pathname: "/confirmation",
-        query: { orderTotal: total, cloverFees: cloverProcessingFee },
-      });
+      setLoading(true); // set loading to true when the pay now button is clicked
+      setTimeout(() => {
+        // simulate payment processing delay
+        router.push({
+          pathname: "/confirmation",
+          query: { orderTotal: total, cloverFees: cloverProcessingFee },
+        });
+        setCart([]);
+        setLoading(false); // set loading to false when payment is complete
+      }, 3000);
     } else {
       Swal.fire({
         icon: "error",
@@ -79,6 +87,11 @@ const Cart = () => {
   return (
     <Layout>
       <div>
+        {loading && (
+          <div className={styles.loaderContainer}>
+            <ProgressBar height={80} width={80} />
+          </div>
+        )}
         <Container className={styles.cartContainer}>
           <Row className={styles.row}>
             <div className={`col-9 ${styles.cartShow}`}>
