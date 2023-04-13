@@ -40,8 +40,8 @@ nav {
 }
 
 .navbar-right {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 2rem;
 }
@@ -99,6 +99,12 @@ li {
   font-size: 1rem;
   text-transform: uppercase;
   color: #218802;
+}
+
+.nav-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo-container {

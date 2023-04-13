@@ -56,28 +56,30 @@ const NavBar = () => {
             />
           </Link>
         </div>
-        <ul className={click ? "nav-menu active" : "nav-menu"}>
-          <li className="navbar-btns">
-            <Link href="/" style={{ textDecoration: "none" }}>
-              <span className="navbar-btn-text">HOME</span>
-            </Link>
-          </li>
-          <li className="navbar-btns">
-            <Link href="/about" style={{ textDecoration: "none" }}>
-              <span className="navbar-btn-text">ABOUT</span>
-            </Link>
-          </li>
-          <li className="navbar-btns">
-            <Link href="/contact" style={{ textDecoration: "none" }}>
-              <span className="navbar-btn-text">CONTACT</span>
-            </Link>
-          </li>
-          <li className="navbar-btns">
-            <Link href="/cart" style={{ textDecoration: "none" }}>
-              <span className="navbar-btn-text">CART</span>
-            </Link>
-          </li>
-        </ul>
+        <div className="nav-bar-container">
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="navbar-btns">
+              <Link href="/" style={{ textDecoration: "none" }}>
+                <span className="navbar-btn-text">HOME</span>
+              </Link>
+            </li>
+            <li className="navbar-btns">
+              <Link href="/about" style={{ textDecoration: "none" }}>
+                <span className="navbar-btn-text">ABOUT</span>
+              </Link>
+            </li>
+            <li className="navbar-btns">
+              <Link href="/contact" style={{ textDecoration: "none" }}>
+                <span className="navbar-btn-text">CONTACT</span>
+              </Link>
+            </li>
+            <li className="navbar-btns">
+              <Link href="/cart" style={{ textDecoration: "none" }}>
+                <span className="navbar-btn-text">CART</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div className="burger">
           {click ? (
             <FaTimes onClick={handleClick} size={22} aria-label="Open menu" />
