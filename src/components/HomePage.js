@@ -80,7 +80,7 @@ export default function HomePage({ coffees }) {
                 src="https://cdn.shopify.com/s/files/1/0249/4283/7837/files/Coffee-Icons-Outline-Individual_Katilawave_edit_c49307a2-9c4b-4d11-aab9-f1e5076b4676_360x.png?v=1672775101"
                 alt="Pour Over"
               />
-              <span className={styles.brewText}>Pour Over</span>
+              <span className={styles.brewText}>Kalita Wave</span>
             </a>
           </div>
           <div className={styles.brewLink}>
