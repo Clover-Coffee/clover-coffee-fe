@@ -28,7 +28,7 @@ const Cart = () => {
       let quantity = coffee.quantity;
       subTotal += coffee.price * quantity;
       tax += coffee.price * quantity * 0.09;
-      total += coffee.price * quantity * 1.13;
+      total += coffee.price * quantity + tax;
     });
   
     subTotal = (Math.round(subTotal * 100) / 100).toFixed(2);
