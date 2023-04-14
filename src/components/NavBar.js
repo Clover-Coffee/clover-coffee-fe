@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { IoIosSearch } from "react-icons/io";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
@@ -36,14 +35,6 @@ const NavBar = () => {
   return (
     <div className={navbarClasses.join(" ")}>
       <nav className={`nav-bar header-bg`}>
-        <form>
-          <IoIosSearch className="searchIcon" size="20px" />
-          <input
-            className="searchBar"
-            type="text"
-            placeholder="Search Products"
-          />
-        </form>
         <div className="logo-container">
           <Link href="/" style={{ textDecoration: "none" }}>
             <Image

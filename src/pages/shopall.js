@@ -7,7 +7,6 @@ import styles from "@/styles/shopall.module.css";
 import API_BASE_URL from "../../config";
 import { IoIosSearch } from "react-icons/io";
 
-
 const ShopAll = ({ coffees }) => {
 	const [showModal, setShowModal] = useState(false);
 	const [name, setName] = useState("");
@@ -17,25 +16,23 @@ const ShopAll = ({ coffees }) => {
 	const [brand, setBrand] = useState("");
 	const [query, setQuery] = useState("");
 	const [filteredCoffees, setFilteredCoffees] = useState();
-	const [searchBarOn, setSearchBarOn] = useState(false)
+	const [searchBarOn, setSearchBarOn] = useState(false);
 
 	const handleSearch = (event) => {
 		setQuery(event.target.value);
 	};
 
 	useEffect(() => {
-		if(query.length > 0) {
+		if (query.length > 0) {
 			const searchCoffee = coffees.filter((coffee) =>
 				coffee.name.toLowerCase().includes(query.toLowerCase())
 			);
 			setFilteredCoffees(searchCoffee);
-			setSearchBarOn(true)
-
+			setSearchBarOn(true);
 		} else {
-			setSearchBarOn(false)
+			setSearchBarOn(false);
 		}
-
-	}, [query, coffees])
+	}, [query, coffees]);
 
 	const handleClick = () => {
 		setShowModal(!showModal);
@@ -62,16 +59,27 @@ const ShopAll = ({ coffees }) => {
 			console.error("Failed to add item:", response);
 		}
 	};
-	
+
 	const stumpsCoffee = coffees.filter((item) => item.brand === "stumptown");
 	const peetsCoffee = coffees.filter((item) => item.brand === "peets");
 	const partnersCoffee = coffees.filter((item) => item.brand === "partners");
 	const whitenoiseCoffee = coffees.filter(
 		(item) => item.brand === "whitenoise"
-		);
-		
-		return (
-			<Layout>
+	);
+
+	return (
+		<Layout>
+			<div className={styles.searchBarContainer}>
+				<IoIosSearch className="searchIcon" size="20px" />
+				<input
+					className={styles.searchBar}
+					type="text"
+					value={query}
+					onChange={handleSearch}
+					placeholder="Search Products"
+				/>
+
+			</div>
 			{searchBarOn ? (
 				<ul>
 					<section className="products-section">
@@ -111,25 +119,23 @@ const ShopAll = ({ coffees }) => {
 
 					{showModal && (
 						<AddModal
-						setName={setName}
-						setDescription={setDescription}
-						setPrice={setPrice}
-						handleClick={handleClick}
-						name={name}
-						description={description}
-						price={price}
-						brand={brand}
-						setBrand={setBrand}
-						image={image}
-						setImage={setImage}
-						onClose={onClose}
-						addItems={addItems}
+							setName={setName}
+							setDescription={setDescription}
+							setPrice={setPrice}
+							handleClick={handleClick}
+							name={name}
+							description={description}
+							price={price}
+							brand={brand}
+							setBrand={setBrand}
+							image={image}
+							setImage={setImage}
+							onClose={onClose}
+							addItems={addItems}
 						/>
-						)}
+					)}
 				</div>
 			)}
-			<IoIosSearch className="searchIcon" size="20px" />
-			<input type="text" value={query} onChange={handleSearch} alt="hello" placeholder="Search Products"/>
 		</Layout>
 	);
 };
