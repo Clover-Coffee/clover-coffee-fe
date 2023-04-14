@@ -52,7 +52,6 @@ const Coffee = ({ coffees }) => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
     const response = await fetch(`${API_BASE_URL}/items/${id}`, {
       method: "PUT",
       headers: {
