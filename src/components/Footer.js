@@ -7,7 +7,6 @@ import {
   FaFacebook,
   FaInstagram,
 } from "react-icons/fa";
-import styles from '../styles/footer.module.css'
 
 const Footer = () => {
   return (
@@ -42,13 +41,13 @@ const Footer = () => {
           </div>
           <div className="social">
             <a href="https://www.linkedin.com/" target="_blank">
-              <FaLinkedin size={25} style={{ marginRight: "1rem" }} />
+              <FaLinkedin size={25} style={{ marginRight: "1rem"}} />
             </a>
             <a href="https://www.instagram.com/" target="_blank">
-              <FaInstagram size={25} style={{ marginRight: "1rem" }} />
+              <FaInstagram size={25} style={{ marginRight: "1rem"}} />
             </a>
             <a href="https://www.facebook.com/" target="_blank">
-              <FaFacebook size={25} style={{ marginRight: "1rem" }} />
+              <FaFacebook size={25} style={{ marginRight: "1rem"}} />
             </a>
           </div>
           <div>

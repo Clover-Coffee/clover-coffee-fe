@@ -40,8 +40,8 @@ nav {
 }
 
 .navbar-right {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 2rem;
 }
@@ -64,6 +64,7 @@ li {
   align-items: center;
   gap: 2rem;
   margin-right: 2rem;
+  margin-bottom: 0;
 }
 
 .nav-menu li button {
@@ -89,6 +90,11 @@ li {
   height: 5rem;
   object-fit: cover;
   background-color: transparent;
+}
+
+
+.navbar-btn-text {
+  color: #218802;
 }
 
 .navbar-btns {
@@ -176,6 +182,7 @@ li {
   background-color: #e8f3e5;
   color: #218802;
 }
+
 .footer-container {
   max-width: 1140px;
   margin: auto;
@@ -190,14 +197,17 @@ li {
   flex-direction: column;
   padding: 1rem;
 }
+
 .location {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
+
 .location p {
   line-height: 30px;
 }
+
 .right {
   max-width: 100%;
   height: 100%;
@@ -205,8 +215,8 @@ li {
   flex-direction: column;
   padding: 1rem;
 }
-.social {
 
+.social {
   display: flex;
   flex-direction: row;
   align-items: center;

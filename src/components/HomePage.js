@@ -80,7 +80,7 @@ export default function HomePage({ coffees }) {
                 src="https://cdn.shopify.com/s/files/1/0249/4283/7837/files/Coffee-Icons-Outline-Individual_Katilawave_edit_c49307a2-9c4b-4d11-aab9-f1e5076b4676_360x.png?v=1672775101"
                 alt="Pour Over"
               />
-              <span>Pour Over</span>
+              <span className={styles.brewText}>Kalita Wave</span>
             </a>
           </div>
           <div className={styles.brewLink}>
@@ -92,7 +92,7 @@ export default function HomePage({ coffees }) {
                 src="https://cdn.shopify.com/s/files/1/0249/4283/7837/files/Coffee-Icons-Outline-Individual_french-press_edit_360x.png?v=1672774158"
                 alt="French Press"
               />
-              <span>French Press</span>
+              <span className={styles.brewText}>French Press</span>
             </a>
           </div>
           <div className={styles.brewLink}>
@@ -104,7 +104,7 @@ export default function HomePage({ coffees }) {
                 src="https://cdn.shopify.com/s/files/1/0249/4283/7837/files/Frame-2_360x.png?v=1650577682"
                 alt="Chemex"
               />
-              <span>Chemex</span>
+              <span className={styles.brewText}>Chemex</span>
             </a>
           </div>
           <div className={styles.brewLink}>
@@ -116,7 +116,7 @@ export default function HomePage({ coffees }) {
                 src="https://cdn.shopify.com/s/files/1/0249/4283/7837/files/Coffee-Icons-Live-Stroke-Individual_Hario_V60_6a8093a7-629c-4cf5-b3c2-7832668228fb_360x.png?v=1673988739"
                 alt="Hario V60"
               />
-              <span>Hario V60</span>
+              <span className={styles.brewText}>Hario V60</span>
             </a>
           </div>
           <div className={styles.brewLink}>
@@ -128,7 +128,7 @@ export default function HomePage({ coffees }) {
                 src="https://cdn.shopify.com/s/files/1/0249/4283/7837/files/Coffee-Icons-Outline-Individual_aeropress_edit_5a44b975-35ca-47ad-a3d2-b29343251d2e_360x.png?v=1672774227"
                 alt="Aeropress"
               />
-              <span>Aeropress</span>
+              <span className={styles.brewText}>Aeropress</span>
             </a>
           </div>
         </div>
