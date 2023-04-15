@@ -20,23 +20,20 @@ const Cart = () => {
   const router = useRouter();
 
   useEffect(() => {
-    let subTotal = 0;
+    let sum = 0;
     let tax = 0;
     let total = 0;
-  
     cart.forEach((coffee) => {
       let quantity = coffee.quantity;
-      subTotal += coffee.price * quantity;
+      sum += coffee.price * quantity;
       tax += coffee.price * quantity * 0.09;
       total += coffee.price * quantity + tax;
     });
-  
-    subTotal = (Math.round(subTotal * 100) / 100).toFixed(2);
+    sum = (Math.round(sum * 100) / 100).toFixed(2);
+    setSubTotal(sum);
     tax = (Math.round(tax * 100) / 100).toFixed(2);
-    total = (Math.round(total * 100) / 100).toFixed(2);
-  
-    setSubTotal(subTotal);
     setTax(tax);
+    total = (Math.round(total * 100) / 100).toFixed(2);
     setTotal(total);
   }, [cart]);
 
